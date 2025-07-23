@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Espresso - Caforia</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Montserrat&display=swap" rel="stylesheet"/>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Montserrat', sans-serif;
+      background-color: #fefcf9;
+      color: #2d2d2d;
+    }
+
+     h2 {
+      text-align: center;
+      font-family: 'Playfair Display', serif;
+      margin: 3px;
+      font-size: 15px;
+    }
+
+     nav {
+      background-color: #452828;
+      padding: 8px 0;
+    }
+
+    .nav-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 10px;
+    }
+
+    .brand {
+      font-size: 1.5rem;
+      font-weight: 600;
+    }
+
+    .brand a {
+      text-decoration: none;
+      color: #d7a2a2;
+      display: flex;
+      align-items: center;
+    }
+
+    .menu {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .menu li {
+      margin: 0 15px;
+      position: relative;
+    }
+
+    .menu a {
+      text-decoration: none;
+      color: #d7a2a2;
+      font-weight: 500;
+      font-size: 1rem;
+      transition: color 0.3s ease;
+    }
+
+    .menu a:hover {
+      color: #fefcf9be;
+    }
+
+    .dropdown-menu {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background-color: #452828;
+      padding: 10px 0;
+      border-radius: 4px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+      z-index: 999;
+    }
+
+    .dropdown-menu li {
+      margin: 0;
+      width: 160px;
+    }
+
+    .dropdown-menu a {
+      display: block;
+      padding: 10px 15px;
+      color: #d7a2a2;
+    }
+
+    .dropdown-menu a:hover {
+      background-color: #5c3b3b;
+      color: #fff;
+    }
+
+    .menu li.dropdown:hover .dropdown-menu {
+      display: block;
+    }
+
+
+    .hero {
+      background: url('picture/espresso-banner.jpg') center/cover no-repeat;
+      height: 70vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      text-align: center;
+      position: relative;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.5);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 3rem;
+      margin-bottom: 10px;
+    }
+
+    .buy-btn {
+    padding: 12px 24px;
+    background-color: #cceffc;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s;
+    }
+
+    .buy-btn:hover {
+    background-color: #a0d8f1;
+    }
+
+    .coldbrew-image img {
+    width: 500px;
+    height:500px;
+    
+    border-radius: 8px;
+    }
+
+    .espresso-highlight {
+    background-color: #fefcf9;
+    padding: 60px 0;
+    width: 100%;
+    }
+
+    .espresso-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    }
+
+    .espresso-image {
+    flex: 1;
+    max-width: 50%;
+    }
+
+    .espresso-image img {
+    width: 600px;
+    height:400px;
+    
+    border-radius: 8px;
+    }
+
+
+    .espresso-text {
+    flex: 1;
+    max-width: 50%;
+    padding: 0 60px;
+    text-align: left;
+    }
+
+    .espresso-text h2 {
+    font-family: 'Playfair Display', serif;
+    color: #452828;
+    font-size: 2.2rem;
+    margin-bottom: 20px;
+    }
+
+    .espresso-text p {
+    font-size: 1rem;
+    color: #333;
+    margin-bottom: 25px;
+    line-height: 1.6;
+    }
+
+    footer {
+      background-color: #452828;
+      color: #d7a2a2;
+      text-align: center;
+      padding: 20px;
+      margin-top: 60px;
+    }
+
+    .footer-links a {
+      color: #fcfcfa;
+      margin: 0 10px;
+      text-decoration: none;
+    }
+
+    .footer-links a:hover {
+      text-decoration: underline;
+      color: #d2f706;
+    }
+  </style>
+</head>
+<body>
+
+   <!-- Header Message -->
+  <header>
+    <h2>Flat 20% off on your first order</h2>
+
+    <!-- Navigation -->
+    <nav>
+      <div class="nav-container">
+        <div class="brand">
+          <a href="index.html">C A F O R I A</a>
+        </div>
+        <ul class="menu">
+          <li><a href="index.html">Home</a></li>
+          <li class="dropdown">
+            <a href="#">Coffee ▾</a>
+            <ul class="dropdown-menu">
+              <li><a href="coldbrew.html">Cold Brew</a></li>
+
+              <li><a href="#">Espresso</a></li>
+              <li><a href="#">Cappuccino</a></li>
+            </ul>
+          </li>
+          <li><a href="menu.html">Menu</a></li>
+          <li><a href="orders.html">Bulk Orders</a></li>
+          <li><a href="dessert.html">Dessert</a></li>
+          <li><a href="cart.html">Cart</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+
+  <!-- Hero Banner -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Espresso</h1>
+      <p>Pure power in every shot.</p>
+    </div>
+  </section>
+
+  <!-- Espresso Highlight Section -->
+<section class="espresso-highlight">
+  <div class="espresso-content">
+    <div class="espresso-image">
+      <img src="picture/espresso.jpg" alt="Espresso Shot">
+    </div>
+    <div class="espresso-text">
+      <h2>Bold & Intense <em>Espresso</em></h2>
+      <p>Espresso is the heart of coffee culture. A concentrated shot brewed under high pressure, delivering a rich aroma and bold flavor — perfect for the purists.</p>
+      <button class="buy-btn">Buy Now</button>
+    </div>
+  </div>
+</section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Caforia. All rights reserved.</p>
+    <div class="footer-links">
+      <a href="index.html">Home</a> |
+      <a href="privacy.html">Privacy Policy</a> |
+      <a href="terms.html">Terms of Service</a>
+    </div>
+  </footer>
+
+</body>
+</html>

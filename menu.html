@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Caforia | Menu</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Playfair Display', serif;
+      background-color: #fff;
+      color: #f5d1a9;
+    }
+
+    /* Navigation Styles */
+    nav {
+      background-color: #452828;
+      padding: 8px 0;
+    }
+
+    .nav-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 10px;
+    }
+
+    .brand {
+      font-size: 1.5rem;
+      font-weight: 600;
+    }
+
+    .brand a {
+      text-decoration: none;
+      color: #d7a2a2;
+      display: flex;
+      align-items: center;
+    }
+
+    .menu {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .menu li {
+      margin: 0 15px;
+      position: relative;
+    }
+
+    .menu a {
+      text-decoration: none;
+      color: #d7a2a2;
+      font-weight: 500;
+      font-size: 1rem;
+      transition: color 0.3s ease;
+    }
+
+    .menu a:hover {
+      color: #fefcf9be;
+    }
+
+    .dropdown-menu {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background-color: #452828;
+      padding: 10px 0;
+      border-radius: 4px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+      z-index: 999;
+    }
+
+    .dropdown-menu li {
+      margin: 0;
+      width: 160px;
+    }
+
+    .dropdown-menu a {
+      display: block;
+      padding: 10px 15px;
+      color: #d7a2a2;
+    }
+
+    .dropdown-menu a:hover {
+      background-color: #5c3b3b;
+      color: #fff;
+    }
+
+    .menu li.dropdown:hover .dropdown-menu {
+      display: block;
+    }
+
+    /* Menu Page Styles */
+    .menu-header {
+      background-image: url('https://i.imgur.com/t8hAKzA.png');
+      background-size: cover;
+      background-position: center;
+      padding: 70px 0;
+      text-align: center;
+    }
+
+    .menu-header h1 {
+      font-size: 3rem;
+      margin: 0;
+      color: #3E2C23;
+    }
+
+    .menu-container {
+      max-width: 1200px;
+      margin: 30px auto;
+      padding: 0 20px;
+    }
+
+    .menu-top {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 30px;
+    }
+
+    .menu-top p {
+      margin: 0;
+      font-size: 1rem;
+      color: 	#C46025;
+    }
+
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 30px;
+    }
+
+    .menu-item {
+      color: #6B4E3D;
+    }
+
+    .menu-item h3 {
+      margin: 0 0 5px 0;
+      font-size: 1.1rem;
+    }
+
+    .menu-item p {
+      margin: 0;
+      font-size: 0.9rem;
+    }
+
+    /* Footer */
+    footer {
+      background-color: #452828;
+      color: #d7a2a2;
+      text-align: center;
+      padding: 10px 15px;
+      margin-top: 50px;
+    }
+
+    .footer-container {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .footer-links {
+      margin-top: 10px;
+    }
+
+    .footer-links a {
+      color: #fcfcfa;
+      margin: 0 10px;
+      text-decoration: none;
+      font-size: 0.9rem;
+    }
+
+    .footer-links a:hover {
+      text-decoration: underline;
+      color: #d2f706;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav>
+    <div class="nav-container">
+      <div class="brand">
+        <a href="index.html">C A F O R I A</a>
+      </div>
+      <ul class="menu">
+        <li><a href="index.html">Home</a></li>
+        <li class="dropdown">
+          <a href="#">Coffee ▾</a>
+          <ul class="dropdown-menu">
+            <li><a href="coldbrew.html">Cold Brew</a></li>
+            <li><a href="espresso.html">Espresso</a></li>
+            <li><a href="#">Cappuccino</a></li>
+          </ul>
+        </li>
+        <li><a href="menu.html">Menu</a></li>
+        <li><a href="orders.html">Bulk Orders</a></li>
+        <li><a href="dessert.html">Dessert</a></li>
+        <li><a href="cart.html">Cart</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Header -->
+  <header class="menu-header">
+    <h1>Menu</h1>
+  </header>
+
+  <!-- Menu Items -->
+  <div class="menu-container">
+    <div class="menu-top">
+      <p>Showing all 24 items</p>
+    </div>
+
+    <div class="menu-grid">
+      <div class="menu-item"><h3>12 oz Coffee Bag</h3><p>₹299.00</p></div>
+      <div class="menu-item"><h3>Cappuccino</h3><p>₹149.00 – ₹199.00</p></div>
+      <div class="menu-item"><h3>Latte</h3><p>₹149.00 – ₹199.00</p></div>
+      <div class="menu-item"><h3>Mocha</h3><p>₹149.00 – ₹199.00</p></div>
+      <div class="menu-item"><h3>Arizona Teas</h3><p>₹60.00</p></div>
+      <div class="menu-item"><h3>Muffin</h3><p>₹79.00</p></div>
+      <div class="menu-item"><h3>One Pound Coffee Bag</h3><p>₹499.00</p></div>
+      <div class="menu-item"><h3>Hot Chocolate</h3><p>₹69.00</p></div>
+      <div class="menu-item"><h3>Espresso Shot</h3><p>₹90.00</p></div>
+      <div class="menu-item"><h3>Farmers Market Coffee</h3><p>₹99.00</p></div>
+      <div class="menu-item"><h3>V8 Splash</h3><p>₹55.00</p></div>
+      <div class="menu-item"><h3>Ocean Spray</h3><p>₹55.00</p></div>
+      <div class="menu-item"><h3>Breakfast Sandwiches</h3><p>₹120.00</p></div>
+      <div class="menu-item"><h3>Frappe</h3><p>₹180.00</p></div>
+      <div class="menu-item"><h3>Brownie</h3><p>₹80.00</p></div>
+      <div class="menu-item"><h3>Coffee</h3><p>₹60.00 – ₹80.00</p></div>
+      <div class="menu-item"><h3>Tea</h3><p>₹40.00 – ₹60.00</p></div>
+      <div class="menu-item"><h3>Chai Latte</h3><p>₹99.00 – ₹120.00</p></div>
+      <div class="menu-item"><h3>Sparkling Water</h3><p>₹40.00</p></div>
+      <div class="menu-item"><h3>Water Bottle</h3><p>₹20.00</p></div>
+      <div class="menu-item"><h3>Cinnamon Roll</h3><p>₹99.00</p></div>
+      <div class="menu-item"><h3>Cold Brew</h3><p>₹160.00</p></div>
+      <div class="menu-item"><h3>Chocolate Milk</h3><p>₹45.00</p></div>
+      <div class="menu-item"><h3>Caforia T-shirt</h3><p>₹499.00</p></div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-container">
+      <p>&copy; 2025 Caforia. All rights reserved.</p>
+      <div class="footer-links">
+        <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms of Service</a>
+      </div>
+    </div>
+    
+  </footer>
+
+</body>
+</html>

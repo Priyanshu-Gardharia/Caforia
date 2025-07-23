@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cart - Caforia</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Montserrat&display=swap" rel="stylesheet"/>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Montserrat', sans-serif;
+      background-color: #fefcf9;
+      color: #2d2d2d;
+    }
+      nav {
+      background-color: #452828;
+      padding: 8px 0;
+    }
+
+    .nav-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 10px;
+    }
+
+    .brand {
+      font-size: 1.5rem;
+      font-weight: 600;
+    }
+
+    .brand a {
+      text-decoration: none;
+      color: #d7a2a2;
+      display: flex;
+      align-items: center;
+    }
+
+    .menu {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .menu li {
+      margin: 0 15px;
+      position: relative;
+    }
+
+    .menu a {
+      text-decoration: none;
+      color: #d7a2a2;
+      font-weight: 500;
+      font-size: 1rem;
+      transition: color 0.3s ease;
+    }
+
+    .menu a:hover {
+      color: #fefcf9be;
+    }
+
+    .dropdown-menu {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background-color: #452828;
+      padding: 10px 0;
+      border-radius: 4px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+      z-index: 999;
+    }
+
+    .dropdown-menu li {
+      margin: 0;
+      width: 160px;
+    }
+
+    .dropdown-menu a {
+      display: block;
+      padding: 10px 15px;
+      color: #d7a2a2;
+    }
+
+    .dropdown-menu a:hover {
+      background-color: #5c3b3b;
+      color: #fff;
+    }
+
+    .menu li.dropdown:hover .dropdown-menu {
+      display: block;
+    }
+
+    h1 {
+      text-align: center;
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem;
+      color: #452828;
+      margin-bottom: 30px;
+    }
+
+    footer {
+      background-color: #452828;
+      color: #d7a2a2;
+      text-align: center;
+      padding: 20px;
+      margin-top: 60px;
+    }
+
+    .footer-links a {
+      color: #fcfcfa;
+      margin: 0 10px;
+      text-decoration: none;
+    }
+
+    .footer-links a:hover {
+      text-decoration: underline;
+      color: #d2f706;
+    }
+  </style>
+</head>
+<body>
+
+   <nav>
+      <div class="nav-container">
+        <div class="brand">
+          <a href="index.html">C A F O R I A</a>
+        </div>
+        <ul class="menu">
+          <li><a href="index.html">Home</a></li>
+          <li class="dropdown">
+            <a href="#">Coffee ▾</a>
+            <ul class="dropdown-menu">
+              <li><a href="coldbrew.html">Cold Brew</a></li>
+
+              <li><a href="#">Espresso</a></li>
+              <li><a href="#">Cappuccino</a></li>
+            </ul>
+          </li>
+          <li><a href="menu.html">Menu</a></li>
+          <li><a href="orders.html">Bulk Orders</a></li>
+          <li><a href="dessert.html">Dessert</a></li>
+          <li><a href="cart.html">Cart</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+ 
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Caforia. All rights reserved.</p>
+    <div class="footer-links">
+      <a href="index.html">Home</a> |
+      <a href="privacy.html">Privacy Policy</a> |
+      <a href="terms.html">Terms of Service</a>
+    </div>
+  </footer>
+
+</body>
+</html>
