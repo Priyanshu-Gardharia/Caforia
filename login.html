@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login - Caforia Coffee & Desserts</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Montserrat', sans-serif;
+      background-color: #d9b2b5da;
+      color: #0b0303;
+      min-height: 100vh;
+    }
+
+    h2 {
+      text-align: center;
+      font-family: 'Playfair Display', serif;
+      margin: 3px;
+      font-size: 15px;
+    }
+
+    nav {
+      background-color: #452828;
+      padding: 8px 0;
+    }
+
+    .nav-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 10px;
+    }
+
+    .brand {
+      font-size: 1.5rem;
+      font-weight: 600;
+    }
+
+    .brand a {
+      text-decoration: none;
+      color: #d7a2a2;
+      display: flex;
+      align-items: center;
+    }
+
+    .menu {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .menu li {
+      margin: 0 15px;
+      position: relative;
+    }
+
+    .menu a {
+      text-decoration: none;
+      color: #d7a2a2;
+      font-weight: 500;
+      font-size: 1rem;
+      transition: color 0.3s ease;
+    }
+
+    .menu a:hover {
+      color: #fefcf9be;
+    }
+
+    .dropdown-menu {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background-color: #452828;
+      padding: 10px 0;
+      border-radius: 4px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+      z-index: 999;
+    }
+
+    .dropdown-menu li {
+      margin: 0;
+      width: 160px;
+    }
+
+    .dropdown-menu a {
+      display: block;
+      padding: 10px 15px;
+      color: #d7a2a2;
+    }
+
+    .dropdown-menu a:hover {
+      background-color: #5c3b3b;
+      color: #fff;
+    }
+
+    .menu li.dropdown:hover .dropdown-menu {
+      display: block;
+    }
+
+    /* Login specific styles */
+    .login-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: calc(100vh - 80px);
+      padding: 20px;
+    }
+
+    .login-card {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      padding: 40px;
+      box-shadow: 0 15px 35px rgba(69, 40, 40, 0.2);
+      width: 100%;
+      max-width: 420px;
+      border: 1px solid rgba(215, 162, 162, 0.3);
+    }
+
+    .login-header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .login-header h1 {
+      font-family: 'Playfair Display', serif;
+      color: #452828;
+      font-size: 2.5rem;
+      margin: 0 0 10px 0;
+      font-weight: 600;
+    }
+
+    .login-header p {
+      color: #666;
+      font-size: 1rem;
+      margin: 0;
+      font-weight: 300;
+    }
+
+    .form-group {
+      margin-bottom: 25px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 8px;
+      color: #452828;
+      font-weight: 500;
+      font-size: 0.95rem;
+    }
+
+    .form-group input {
+      width: 100%;
+      padding: 15px;
+      border: 2px solid #e0e0e0;
+      border-radius: 12px;
+      font-size: 1rem;
+      font-family: 'Montserrat', sans-serif;
+      transition: all 0.3s ease;
+      background: #fafafa;
+    }
+
+    .form-group input:focus {
+      outline: none;
+      border-color: #d7a2a2;
+      background: #fff;
+      box-shadow: 0 0 0 3px rgba(215, 162, 162, 0.1);
+    }
+
+    .form-group input::placeholder {
+      color: #999;
+      font-weight: 300;
+    }
+
+    .password-container {
+      position: relative;
+    }
+
+    .toggle-password {
+      position: absolute;
+      right: 15px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      color: #666;
+      cursor: pointer;
+      font-size: 1.1rem;
+      padding: 5px;
+      transition: color 0.3s ease;
+    }
+
+    .toggle-password:hover {
+      color: #452828;
+    }
+
+    .remember-forgot {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 30px;
+      font-size: 0.9rem;
+    }
+
+    .remember-me {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .remember-me input[type="checkbox"] {
+      width: auto;
+      margin: 0;
+    }
+
+    .forgot-password {
+      color: #d7a2a2;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    .forgot-password:hover {
+      color: #452828;
+      text-decoration: underline;
+    }
+
+    .login-btn {
+      width: 100%;
+      padding: 15px;
+      background: linear-gradient(135deg, #452828, #5c3b3b);
+      color: white;
+      border: none;
+      border-radius: 12px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      font-family: 'Montserrat', sans-serif;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(69, 40, 40, 0.3);
+    }
+
+    .login-btn:hover {
+      background: linear-gradient(135deg, #5c3b3b, #452828);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(69, 40, 40, 0.4);
+    }
+
+    .login-btn:active {
+      transform: translateY(0);
+    }
+
+    .divider {
+      text-align: center;
+      margin: 30px 0;
+      position: relative;
+      color: #666;
+      font-size: 0.9rem;
+    }
+
+    .divider::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: #e0e0e0;
+      z-index: 1;
+    }
+
+    .divider span {
+      background: rgba(255, 255, 255, 0.95);
+      padding: 0 20px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .social-login {
+      display: flex;
+      gap: 15px;
+      margin-bottom: 30px;
+    }
+
+    .social-btn {
+      flex: 1;
+      padding: 12px;
+      border: 2px solid #e0e0e0;
+      border-radius: 12px;
+      background: #fff;
+      color: #666;
+      text-decoration: none;
+      text-align: center;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .social-btn:hover {
+      border-color: #d7a2a2;
+      background: #fafafa;
+      color: #452828;
+    }
+
+    .signup-link {
+      text-align: center;
+      color: #666;
+      font-size: 0.95rem;
+    }
+
+    .signup-link a {
+      color: #d7a2a2;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+
+    .signup-link a:hover {
+      color: #452828;
+      text-decoration: underline;
+    }
+
+    .error-message {
+      background: #ffe6e6;
+      color: #d63031;
+      padding: 12px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      font-size: 0.9rem;
+      border-left: 4px solid #d63031;
+      display: none;
+    }
+
+    .success-message {
+      background: #e6f7e6;
+      color: #00b894;
+      padding: 12px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      font-size: 0.9rem;
+      border-left: 4px solid #00b894;
+      display: none;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .nav-container {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .menu {
+        justify-content: center;
+      }
+
+      .menu li {
+        margin: 0 10px;
+      }
+
+      .login-card {
+        padding: 30px 20px;
+        margin: 10px;
+      }
+
+      .login-header h1 {
+        font-size: 2rem;
+      }
+
+      .social-login {
+        flex-direction: column;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .menu {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .menu li {
+        margin: 5px 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <nav>
+    <div class="nav-container">
+      <div class="brand">
+        <a href="index.html">☕ Caforia</a>
+      </div>
+      <ul class="menu">
+        <li><a href="index.html">Home</a></li>
+        <li class="dropdown">
+          <a href="#">Coffee ▼</a>
+          <ul class="dropdown-menu">
+            <li><a href="coldbrew.html">Cold Brew</a></li>
+            <li><a href="espresso.html">Espresso</a></li>
+            <li><a href="#">Cappuccino</a></li>
+          </ul>
+        </li>
+        <li><a href="menu.html">Menu</a></li>
+        <li><a href="orders.html">Bulk Orders</a></li>
+        <li><a href="dessert.html">Dessert</a></li>
+        <li><a href="cart.html">Cart</a></li>
+        <li><a href="login.html" style="color: #fefcf9be;">Login</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="login-container">
+    <div class="login-card">
+      <div class="login-header">
+        <h1>Welcome Back</h1>
+        <p>Sign in to your Caforia account</p>
+      </div>
+
+      <div id="errorMessage" class="error-message"></div>
+      <div id="successMessage" class="success-message"></div>
+
+      <form id="loginForm">
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" name="email" placeholder="Enter your email" required>
+        </div>
+
+        <div class="form-group">
+          <label for="password">Password</label>
+          <div class="password-container">
+            <input type="password" id="password" name="password" placeholder="Enter your password" required>
+            <button type="button" class="toggle-password" onclick="togglePassword()">👁</button>
+          </div>
+        </div>
+
+        <div class="remember-forgot">
+          <div class="remember-me">
+            <input type="checkbox" id="remember" name="remember">
+            <label for="remember">Remember me</label>
+          </div>
+          <a href="#" class="forgot-password">Forgot Password?</a>
+        </div>
+
+        <button type="submit" class="login-btn">Sign In</button>
+      </form>
+
+      <div class="divider">
+        <span>or continue with</span>
+      </div>
+
+      <div class="social-login">
+        <a href="#" class="social-btn" onclick="socialLogin('google')">
+          <span>🔍</span> Google
+        </a>
+        <a href="#" class="social-btn" onclick="socialLogin('facebook')">
+          <span>📘</span> Facebook
+        </a>
+      </div>
+
+      <div class="signup-link">
+        Don't have an account? <a href="#" onclick="showSignupMessage()">Sign up here</a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Form validation and submission
+    document.getElementById('loginForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+      const remember = document.getElementById('remember').checked;
+      
+      // Clear previous messages
+      hideMessages();
+      
+      // Basic validation
+      if (!validateEmail(email)) {
+        showError('Please enter a valid email address.');
+        return;
+      }
+      
+      if (password.length < 6) {
+        showError('Password must be at least 6 characters long.');
+        return;
+      }
+      
+      // Simulate login process
+      simulateLogin(email, password, remember);
+    });
+
+    // Email validation function
+    function validateEmail(email) {
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      return emailRegex.test(email);
+    }
+
+    // Simulate login process
+    function simulateLogin(email, password, remember) {
+      // Show loading state
+      const submitBtn = document.querySelector('.login-btn');
+      const originalText = submitBtn.textContent;
+      submitBtn.textContent = 'Signing In...';
+      submitBtn.disabled = true;
+      
+      // Simulate API call delay
+      setTimeout(() => {
+        // Demo credentials for testing
+        if (email === 'demo@caforia.com' && password === 'coffee123') {
+          showSuccess('Login successful! Redirecting to dashboard...');
+          
+          // Store login state if remember me is checked
+          if (remember) {
+            localStorage.setItem('caforia_remember', 'true');
+            localStorage.setItem('caforia_email', email);
+          }
+          
+          // Simulate redirect after 2 seconds
+          setTimeout(() => {
+            window.location.href = 'index.html';
+          }, 2000);
+          
+        } else {
+          showError('Invalid email or password. Try demo@caforia.com / coffee123');
+        }
+        
+        // Reset button
+        submitBtn.textContent = originalText;
+        submitBtn.disabled = false;
+      }, 1500);
+    }
+
+    // Toggle password visibility
+    function togglePassword() {
+      const passwordInput = document.getElementById('password');
+      const toggleBtn = document.querySelector('.toggle-password');
+      
+      if (passwordInput.type === 'password') {
+        passwordInput.type = 'text';
+        toggleBtn.textContent = '🙈';
+      } else {
+        passwordInput.type = 'password';
+        toggleBtn.textContent = '👁';
+      }
+    }
+
+    // Social login simulation
+    function socialLogin(provider) {
+      showSuccess(`${provider.charAt(0).toUpperCase() + provider.slice(1)} login would be implemented here.`);
+      
+      // In a real app, you would integrate with OAuth providers
+      setTimeout(() => {
+        hideMessages();
+      }, 3000);
+    }
+
+    // Show signup message
+    function showSignupMessage() {
+      showSuccess('Signup page would be implemented here. For now, use demo@caforia.com / coffee123 to login.');
+      setTimeout(() => {
+        hideMessages();
+      }, 4000);
+    }
+
+    // Message functions
+    function showError(message) {
+      const errorDiv = document.getElementById('errorMessage');
+      errorDiv.textContent = message;
+      errorDiv.style.display = 'block';
+      
+      // Auto-hide after 5 seconds
+      setTimeout(() => {
+        hideMessages();
+      }, 5000);
+    }
+
+    function showSuccess(message) {
+      const successDiv = document.getElementById('successMessage');
+      successDiv.textContent = message;
+      successDiv.style.display = 'block';
+    }
+
+    function hideMessages() {
+      document.getElementById('errorMessage').style.display = 'none';
+      document.getElementById('successMessage').style.display = 'none';
+    }
+
+    // Check if user should be remembered on page load
+    window.addEventListener('load', function() {
+      if (localStorage.getItem('caforia_remember') === 'true') {
+        const savedEmail = localStorage.getItem('caforia_email');
+        if (savedEmail) {
+          document.getElementById('email').value = savedEmail;
+          document.getElementById('remember').checked = true;
+        }
+      }
+    });
+
+    // Add some interactive effects
+    document.querySelectorAll('.form-group input').forEach(input => {
+      input.addEventListener('focus', function() {
+        this.parentElement.style.transform = 'translateY(-2px)';
+      });
+      
+      input.addEventListener('blur', function() {
+        this.parentElement.style.transform = 'translateY(0)';
+      });
+    });
+
+    // Add coffee-themed animations
+    function addCoffeeAnimation() {
+      const loginCard = document.querySelector('.login-card');
+      loginCard.style.animation = 'coffeeAroma 6s ease-in-out infinite';
+    }
+
+    // CSS animation for coffee aroma effect
+    const style = document.createElement('style');
+    style.textContent = `
+      @keyframes coffeeAroma {
+        0%, 100% { box-shadow: 0 15px 35px rgba(69, 40, 40, 0.2); }
+        50% { box-shadow: 0 20px 40px rgba(69, 40, 40, 0.3), 0 0 20px rgba(215, 162, 162, 0.1); }
+      }
+    `;
+    document.head.appendChild(style);
+
+    // Start the coffee animation
+    setTimeout(addCoffeeAnimation, 1000);
+  </script>
+</body>
+</html>
