@@ -3,14 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Login - Impulse Coffees</title>
+  <title>Login - Caforia</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet"/>
   
   <style>
-    * {
-      box-sizing: border-box;
-    }
-
     body {
       margin: 0;
       font-family: 'Montserrat', sans-serif;
@@ -21,7 +17,6 @@
       flex-direction: column;
     }
 
-    /* Header */
     nav {
       background-color: #452828;
       padding: 8px 0;
@@ -44,8 +39,6 @@
     .brand a {
       text-decoration: none;
       color: #d7a2a2;
-      display: flex;
-      align-items: center;
     }
 
     .menu {
@@ -53,7 +46,6 @@
       margin: 0;
       padding: 0;
       display: flex;
-      flex-wrap: wrap;
     }
 
     .menu li {
@@ -64,7 +56,6 @@
       text-decoration: none;
       color: #d7a2a2;
       font-weight: 500;
-      font-size: 1rem;
       transition: color 0.3s ease;
     }
 
@@ -72,7 +63,6 @@
       color: #fefcf9be;
     }
 
-    /* Main Content */
     .main-content {
       flex: 1;
       display: flex;
@@ -91,25 +81,13 @@
       text-align: center;
     }
 
-    .login-header {
-      margin-bottom: 30px;
-    }
-
     .login-header h1 {
       font-family: 'Playfair Display', serif;
       font-size: 2rem;
       color: #452828;
-      margin: 0 0 10px 0;
-      font-weight: 600;
+      margin: 0 0 30px 0;
     }
 
-    .login-header p {
-      color: #5c3b3b;
-      margin: 0;
-      font-size: 0.9rem;
-    }
-
-    /* Form Styles */
     .login-form {
       text-align: left;
     }
@@ -123,7 +101,6 @@
       margin-bottom: 6px;
       color: #452828;
       font-weight: 500;
-      font-size: 0.9rem;
     }
 
     .form-group input {
@@ -133,32 +110,15 @@
       border-radius: 6px;
       font-size: 1rem;
       font-family: 'Montserrat', sans-serif;
-      transition: border-color 0.3s ease, box-shadow 0.3s ease;
       background-color: #fefcf9;
+      box-sizing: border-box;
     }
 
     .form-group input:focus {
       outline: none;
       border-color: #452828;
-      box-shadow: 0 0 0 3px rgba(69, 40, 40, 0.1);
     }
 
-    .form-group input.error {
-      border-color: #dc3545;
-    }
-
-    .error-message {
-      color: #dc3545;
-      font-size: 0.8rem;
-      margin-top: 5px;
-      display: none;
-    }
-
-    .error-message.show {
-      display: block;
-    }
-
-    /* Button */
     .login-button {
       width: 100%;
       background-color: #452828;
@@ -170,26 +130,13 @@
       font-weight: 600;
       font-family: 'Montserrat', sans-serif;
       cursor: pointer;
-      transition: background-color 0.3s ease, transform 0.2s ease;
       margin-bottom: 20px;
     }
 
     .login-button:hover {
       background-color: #5c3b3b;
-      transform: translateY(-1px);
     }
 
-    .login-button:active {
-      transform: translateY(0);
-    }
-
-    .login-button:disabled {
-      background-color: #ccc;
-      cursor: not-allowed;
-      transform: none;
-    }
-
-    /* Links */
     .form-links {
       text-align: center;
       margin-top: 20px;
@@ -199,11 +146,9 @@
       color: #452828;
       text-decoration: none;
       font-size: 0.9rem;
-      transition: color 0.3s ease;
     }
 
     .form-links a:hover {
-      color: #5c3b3b;
       text-decoration: underline;
     }
 
@@ -213,36 +158,11 @@
       font-size: 0.9rem;
     }
 
-    /* Success Message */
-    .success-message {
-      background-color: #d4edda;
-      color: #155724;
-      padding: 12px;
-      border-radius: 6px;
-      margin-bottom: 20px;
-      display: none;
-    }
-
-    .success-message.show {
-      display: block;
-    }
-
-    /* Footer */
     footer {
       background-color: #452828;
       color: #d7a2a2;
       text-align: center;
       padding: 20px;
-      margin-top: auto;
-    }
-
-    .footer-container {
-      max-width: 1000px;
-      margin: 0 auto;
-    }
-
-    .footer-links {
-      margin-top: 10px;
     }
 
     .footer-links a {
@@ -252,22 +172,11 @@
       font-size: 0.9rem;
     }
 
-    .footer-links a:hover {
-      text-decoration: underline;
-      color: #d2f706;
-    }
-
-    /* Responsive Design */
     @media (max-width: 480px) {
       .login-container {
         padding: 30px 20px;
         margin: 20px;
       }
-
-      .nav-container {
-        padding: 0 15px;
-      }
-
       .menu {
         display: none;
       }
@@ -275,11 +184,10 @@
   </style>
 </head>
 <body>
-  <!-- Navigation -->
   <nav>
     <div class="nav-container">
       <div class="brand">
-        <a href="index.html">I M P U L S E   C O F F E E S</a>
+        <a href="index.html">C A F O R I A</a>
       </div>
       <ul class="menu">
         <li><a href="index.html">Home</a></li>
@@ -290,32 +198,24 @@
     </div>
   </nav>
 
-  <!-- Main Content -->
   <main class="main-content">
     <div class="login-container">
       <div class="login-header">
         <h1>Sign In</h1>
-        <p>Welcome back to Impulse Coffees</p>
       </div>
 
-      <div class="success-message" id="successMessage">
-        Login successful! Redirecting to your account...
-      </div>
-
-      <form class="login-form" id="loginForm">
+      <form class="login-form">
         <div class="form-group">
           <label for="email">Email Address</label>
           <input type="email" id="email" name="email" required>
-          <div class="error-message" id="emailError">Please enter a valid email address</div>
         </div>
 
         <div class="form-group">
           <label for="password">Password</label>
           <input type="password" id="password" name="password" required>
-          <div class="error-message" id="passwordError">Password is required</div>
         </div>
 
-        <button type="submit" class="login-button" id="loginButton">
+        <button type="submit" class="login-button">
           Sign In
         </button>
       </form>
@@ -330,97 +230,13 @@
     </div>
   </main>
 
-  <!-- Footer -->
   <footer>
     <div class="footer-container">
-      <p>&copy; 2025 Impulse Coffees. All rights reserved.</p>
+      <p>&copy; 2025 Caforia. All rights reserved.</p>
       <div class="footer-links">
         <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms of Service</a>
       </div>
     </div>
   </footer>
-
-  <script>
-    // Form validation and submission
-    document.getElementById('loginForm').addEventListener('submit', function(e) {
-      e.preventDefault();
-      
-      const email = document.getElementById('email');
-      const password = document.getElementById('password');
-      const emailError = document.getElementById('emailError');
-      const passwordError = document.getElementById('passwordError');
-      const successMessage = document.getElementById('successMessage');
-      const loginButton = document.getElementById('loginButton');
-      
-      // Reset previous errors
-      email.classList.remove('error');
-      password.classList.remove('error');
-      emailError.classList.remove('show');
-      passwordError.classList.remove('show');
-      successMessage.classList.remove('show');
-      
-      let isValid = true;
-      
-      // Email validation
-      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      if (!email.value || !emailRegex.test(email.value)) {
-        email.classList.add('error');
-        emailError.classList.add('show');
-        isValid = false;
-      }
-      
-      // Password validation
-      if (!password.value || password.value.length < 6) {
-        password.classList.add('error');
-        passwordError.textContent = password.value ? 'Password must be at least 6 characters' : 'Password is required';
-        passwordError.classList.add('show');
-        isValid = false;
-      }
-      
-      if (isValid) {
-        // Disable button and show loading state
-        loginButton.disabled = true;
-        loginButton.textContent = 'Signing In...';
-        
-        // Simulate API call
-        setTimeout(() => {
-          // For demo purposes, accept any valid email/password combination
-          successMessage.classList.add('show');
-          
-          // Simulate redirect to account dashboard
-          setTimeout(() => {
-            // In a real application, this would redirect to the actual account page
-            alert('Redirecting to account dashboard...\n\nIn a real Shopify store, this would take you to:\n- Order history\n- Saved addresses\n- Subscription details\n- Account settings');
-            
-            // Reset form for demo
-            loginButton.disabled = false;
-            loginButton.textContent = 'Sign In';
-            successMessage.classList.remove('show');
-            document.getElementById('loginForm').reset();
-          }, 2000);
-        }, 1000);
-      }
-    });
-
-    // Real-time validation feedback
-    document.getElementById('email').addEventListener('input', function() {
-      const emailError = document.getElementById('emailError');
-      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      
-      if (this.value && emailRegex.test(this.value)) {
-        this.classList.remove('error');
-        emailError.classList.remove('show');
-      }
-    });
-
-    document.getElementById('password').addEventListener('input', function() {
-      const passwordError = document.getElementById('passwordError');
-      
-      if (this.value && this.value.length >= 6) {
-        this.classList.remove('error');
-        passwordError.classList.remove('show');
-      }
-    });
-  </script>
 </body>
 </html>
