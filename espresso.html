@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Espresso - Caforia</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet"/>
   <style>
     body {
       margin: 0;
@@ -14,14 +14,14 @@
       line-height: 1.6;
     }
 
-     h2 {
+    h2 {
       text-align: center;
       font-family: 'Playfair Display', serif;
       margin: 3px;
       font-size: 15px;
     }
 
-     nav {
+    nav {
       background-color: #452828;
       padding: 8px 0;
     }
@@ -161,7 +161,7 @@
     }
 
     .section {
-      padding: 80px 0;
+      padding: 60px 0;
       max-width: 1200px;
       margin: 0 auto;
       padding-left: 20px;
@@ -170,7 +170,7 @@
 
     .espresso-highlight {
       background-color: #fefcf9;
-      padding: 80px 0;
+      padding: 60px 0;
     }
 
     .espresso-content {
@@ -180,7 +180,7 @@
       max-width: 1200px;
       margin: 0 auto;
       padding: 0 20px;
-      gap: 60px;
+      gap: 40px;
     }
 
     .espresso-image {
@@ -190,8 +190,8 @@
 
     .espresso-image img {
       width: 100%;
-      max-width: 600px;
-      height: 400px;
+      max-width: 500px;
+      height: 350px;
       object-fit: cover;
       border-radius: 12px;
       box-shadow: 0 8px 25px rgba(0,0,0,0.15);
@@ -206,262 +206,173 @@
     .espresso-text h2 {
       font-family: 'Playfair Display', serif;
       color: #452828;
-      font-size: 2.5rem;
+      font-size: 2.2rem;
       margin-bottom: 20px;
       text-align: left;
     }
 
     .espresso-text p {
-      font-size: 1.1rem;
+      font-size: 1rem;
       color: #555;
-      margin-bottom: 25px;
+      margin-bottom: 20px;
       line-height: 1.7;
     }
 
     /* Brewing Methods Section */
     .brewing-methods {
       background-color: #f8f6f3;
-      padding: 80px 0;
+      padding: 60px 0;
     }
 
     .brewing-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 40px;
-      max-width: 1200px;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      max-width: 1000px;
       margin: 0 auto;
       padding: 0 20px;
     }
 
     .brewing-card {
       background: white;
-      padding: 40px 30px;
-      border-radius: 12px;
-      box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+      padding: 30px 25px;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
       text-align: center;
       transition: transform 0.3s ease;
     }
 
     .brewing-card:hover {
-      transform: translateY(-5px);
+      transform: translateY(-3px);
     }
 
     .brewing-icon {
-      font-size: 3rem;
-      margin-bottom: 20px;
+      font-size: 2.5rem;
+      margin-bottom: 15px;
       color: #d4a574;
     }
 
     .brewing-card h3 {
       font-family: 'Playfair Display', serif;
       color: #452828;
-      font-size: 1.5rem;
-      margin-bottom: 15px;
+      font-size: 1.3rem;
+      margin-bottom: 10px;
     }
 
     /* Bean Origins Section */
     .bean-origins {
-      padding: 80px 0;
-      background-color: #fefcf9;
+      padding: 60px 0;
+      background-color: #452828;
+      color: white;
     }
 
     .origins-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-      gap: 30px;
-      max-width: 1200px;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 25px;
+      max-width: 1000px;
       margin: 0 auto;
       padding: 0 20px;
     }
 
     .origin-card {
-      background: linear-gradient(135deg, #452828 0%, #5a3838 100%);
-      color: white;
-      padding: 40px;
-      border-radius: 15px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .origin-card::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      right: 0;
-      width: 100px;
-      height: 100px;
       background: rgba(255,255,255,0.1);
-      border-radius: 50%;
-      transform: translate(30px, -30px);
+      padding: 30px;
+      border-radius: 12px;
+      backdrop-filter: blur(5px);
     }
 
     .origin-card h3 {
       font-family: 'Playfair Display', serif;
-      font-size: 1.8rem;
-      margin-bottom: 15px;
+      font-size: 1.5rem;
+      margin-bottom: 10px;
       color: #d4a574;
     }
 
     .origin-card .flag {
-      font-size: 2rem;
-      margin-bottom: 10px;
-    }
-
-    /* Tasting Notes Section */
-    .tasting-notes {
-      background-color: #2d2d2d;
-      color: white;
-      padding: 80px 0;
-    }
-
-    .notes-container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 20px;
-      text-align: center;
-    }
-
-    .notes-grid {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 30px;
-      margin-top: 50px;
-    }
-
-    .note-item {
-      background: rgba(255,255,255,0.1);
-      padding: 30px 20px;
-      border-radius: 10px;
-      min-width: 150px;
-      backdrop-filter: blur(10px);
-    }
-
-    .note-icon {
-      font-size: 2.5rem;
-      margin-bottom: 15px;
-      color: #d4a574;
-    }
-
-    .note-item h4 {
-      font-family: 'Playfair Display', serif;
-      margin-bottom: 10px;
-      color: #d4a574;
+      font-size: 1.5rem;
+      margin-bottom: 8px;
     }
 
     /* Product Variants Section */
     .product-variants {
-      padding: 80px 0;
-      background-color: #f8f6f3;
+      padding: 60px 0;
+      background-color: #fefcf9;
     }
 
     .variants-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 30px;
-      max-width: 1200px;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 25px;
+      max-width: 1000px;
       margin: 0 auto;
       padding: 0 20px;
     }
 
     .variant-card {
       background: white;
-      border-radius: 15px;
+      border-radius: 12px;
       overflow: hidden;
-      box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
       transition: transform 0.3s ease;
     }
 
     .variant-card:hover {
-      transform: translateY(-8px);
+      transform: translateY(-5px);
     }
 
     .variant-image {
-      height: 200px;
+      height: 150px;
       background: linear-gradient(45deg, #d4a574, #b8935f);
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 3rem;
+      font-size: 2.5rem;
       color: white;
     }
 
     .variant-content {
-      padding: 30px;
+      padding: 25px;
     }
 
     .variant-card h3 {
       font-family: 'Playfair Display', serif;
       color: #452828;
-      margin-bottom: 15px;
-      font-size: 1.4rem;
+      margin-bottom: 10px;
+      font-size: 1.2rem;
     }
 
     .price {
-      font-size: 1.5rem;
+      font-size: 1.3rem;
       font-weight: 600;
       color: #d4a574;
-      margin: 15px 0;
+      margin: 10px 0;
     }
 
     .variant-specs {
-      font-size: 0.9rem;
+      font-size: 0.85rem;
       color: #666;
-      margin-bottom: 20px;
+      margin-bottom: 15px;
     }
 
     /* Section Headers */
     .section-header {
       text-align: center;
-      margin-bottom: 60px;
+      margin-bottom: 40px;
     }
 
     .section-header h2 {
       font-family: 'Playfair Display', serif;
-      font-size: 3rem;
+      font-size: 2.5rem;
       color: #452828;
-      margin-bottom: 20px;
+      margin-bottom: 15px;
     }
 
     .section-header p {
-      font-size: 1.2rem;
+      font-size: 1.1rem;
       color: #666;
-      max-width: 600px;
+      max-width: 500px;
       margin: 0 auto;
-    }
-
-    /* Quality Assurance Section */
-    .quality-assurance {
-      background: linear-gradient(135deg, #452828 0%, #2d2d2d 100%);
-      color: white;
-      padding: 80px 0;
-    }
-
-    .quality-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 40px;
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 20px;
-    }
-
-    .quality-item {
-      text-align: center;
-      padding: 30px;
-    }
-
-    .quality-icon {
-      font-size: 3.5rem;
-      margin-bottom: 20px;
-      color: #d4a574;
-    }
-
-    .quality-item h3 {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.5rem;
-      margin-bottom: 15px;
-      color: #d4a574;
     }
 
     footer {
@@ -487,7 +398,7 @@
     @media (max-width: 768px) {
       .espresso-content {
         flex-direction: column;
-        gap: 40px;
+        gap: 30px;
       }
       
       .espresso-image, .espresso-text {
@@ -495,22 +406,14 @@
       }
       
       .hero h1 {
-        font-size: 2.5rem;
-      }
-      
-      .section-header h2 {
-        font-size: 2.5rem;
-      }
-      
-      .notes-grid {
-        justify-content: center;
+        font-size: 2.2rem;
       }
     }
   </style>
 </head>
 <body>
 
-   <!-- Header Message -->
+  <!-- Header Message -->
   <header>
     <h2>Flat 20% off on your first order</h2>
 
@@ -556,9 +459,9 @@
       </div>
       <div class="espresso-text">
         <h2>The Perfect <em>Espresso</em></h2>
-        <p>Our signature espresso blend combines carefully selected beans from the world's finest coffee regions. Each shot delivers a harmonious balance of rich crema, intense aroma, and complex flavors that coffee connoisseurs cherish.</p>
-        <p>Roasted to perfection using traditional Italian methods, our espresso provides the foundation for all your favorite coffee beverages while standing beautifully on its own.</p>
-        <button class="buy-btn">Shop Espresso Collection</button>
+        <p>Our signature espresso blend combines carefully selected beans from the world's finest coffee regions. Each shot delivers a harmonious balance of rich crema, intense aroma, and complex flavors.</p>
+        <p>Roasted to perfection using traditional Italian methods, our espresso provides the foundation for all your favorite coffee beverages.</p>
+        <button class="buy-btn">Shop Collection</button>
       </div>
     </div>
   </section>
@@ -567,23 +470,23 @@
   <section class="brewing-methods">
     <div class="section-header">
       <h2>Brewing Excellence</h2>
-      <p>Master the art of espresso with our professional brewing techniques</p>
+      <p>Master the art of espresso with professional techniques</p>
     </div>
     <div class="brewing-grid">
       <div class="brewing-card">
         <div class="brewing-icon">☕</div>
         <h3>Traditional Espresso</h3>
-        <p>Classic single or double shots extracted at 9 bars of pressure. Perfect crema, balanced extraction, pure coffee essence in every cup.</p>
+        <p>Classic shots extracted at 9 bars pressure. Perfect crema and balanced extraction in every cup.</p>
       </div>
       <div class="brewing-card">
         <div class="brewing-icon">🥛</div>
         <h3>Ristretto</h3>
-        <p>Concentrated perfection using less water for a more intense, sweeter flavor profile. The ultimate expression of our premium beans.</p>
+        <p>Concentrated perfection using less water for intense, sweeter flavor. Ultimate expression of our beans.</p>
       </div>
       <div class="brewing-card">
         <div class="brewing-icon">☕</div>
         <h3>Lungo</h3>
-        <p>Extended extraction for a larger, more mellow cup while maintaining the rich espresso character and complex flavor notes.</p>
+        <p>Extended extraction for larger, mellow cup while maintaining rich espresso character.</p>
       </div>
     </div>
   </section>
@@ -592,63 +495,20 @@
   <section class="bean-origins">
     <div class="section-header">
       <h2 style="color: white;">Premium Bean Origins</h2>
-      <p style="color: #d7a2a2;">Sourced from the world's most renowned coffee-growing regions</p>
+      <p style="color: #d7a2a2;">Sourced from renowned coffee-growing regions</p>
     </div>
     <div class="origins-grid">
       <div class="origin-card">
         <div class="flag">🇧🇷</div>
         <h3>Brazilian Santos</h3>
-        <p>Smooth, nutty undertones with chocolate notes. Forms the perfect base for our espresso blend with its natural sweetness and low acidity.</p>
+        <p>Smooth, nutty undertones with chocolate notes. Perfect base for our blend with natural sweetness.</p>
         <p><strong>Altitude:</strong> 800-1,200m | <strong>Process:</strong> Natural</p>
       </div>
       <div class="origin-card">
         <div class="flag">🇪🇹</div>
         <h3>Ethiopian Yirgacheffe</h3>
-        <p>Bright, floral notes with citrusy acidity. Adds complexity and aromatic intensity to create a truly distinctive espresso experience.</p>
+        <p>Bright, floral notes with citrusy acidity. Adds complexity and aromatic intensity.</p>
         <p><strong>Altitude:</strong> 1,700-2,200m | <strong>Process:</strong> Washed</p>
-      </div>
-      <div class="origin-card">
-        <div class="flag">🇮🇹</div>
-        <h3>Italian Roast Blend</h3>
-        <p>Traditional dark roast with rich, bold flavors. The classic espresso taste that has defined Italian coffee culture for generations.</p>
-        <p><strong>Roast:</strong> Dark | <strong>Body:</strong> Full</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Tasting Notes Section -->
-  <section class="tasting-notes">
-    <div class="notes-container">
-      <div class="section-header">
-        <h2 style="color: white;">Flavor Profile</h2>
-        <p style="color: #d7a2a2;">A complex symphony of carefully balanced flavors</p>
-      </div>
-      <div class="notes-grid">
-        <div class="note-item">
-          <div class="note-icon">🍫</div>
-          <h4>Dark Chocolate</h4>
-          <p>Rich, deep cocoa notes</p>
-        </div>
-        <div class="note-item">
-          <div class="note-icon">🥜</div>
-          <h4>Roasted Nuts</h4>
-          <p>Subtle almond undertones</p>
-        </div>
-        <div class="note-item">
-          <div class="note-icon">🍯</div>
-          <h4>Caramel</h4>
-          <p>Sweet, smooth finish</p>
-        </div>
-        <div class="note-item">
-          <div class="note-icon">🌶️</div>
-          <h4>Spice Notes</h4>
-          <p>Warm cinnamon hints</p>
-        </div>
-        <div class="note-item">
-          <div class="note-icon">🍊</div>
-          <h4>Citrus Brightness</h4>
-          <p>Light orange zest</p>
-        </div>
       </div>
     </div>
   </section>
@@ -657,7 +517,7 @@
   <section class="product-variants">
     <div class="section-header">
       <h2>Espresso Collection</h2>
-      <p>Choose from our curated selection of premium espresso blends</p>
+      <p>Premium espresso blends for every preference</p>
     </div>
     <div class="variants-grid">
       <div class="variant-card">
@@ -668,8 +528,7 @@
           <div class="variant-specs">
             • 250g premium beans<br>
             • Medium-dark roast<br>
-            • Intensity: 8/10<br>
-            • Perfect for espresso machines
+            • Intensity: 8/10
           </div>
           <button class="buy-btn">Add to Cart</button>
         </div>
@@ -682,8 +541,7 @@
           <div class="variant-specs">
             • 200g exclusive beans<br>
             • Light-medium roast<br>
-            • Intensity: 7/10<br>
-            • Limited edition harvest
+            • Intensity: 7/10
           </div>
           <button class="buy-btn">Add to Cart</button>
         </div>
@@ -696,41 +554,10 @@
           <div class="variant-specs">
             • 300g traditional blend<br>
             • Dark roast<br>
-            • Intensity: 9/10<br>
-            • Classic Italian style
+            • Intensity: 9/10
           </div>
           <button class="buy-btn">Add to Cart</button>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Quality Assurance Section -->
-  <section class="quality-assurance">
-    <div class="section-header">
-      <h2 style="color: white;">Quality Promise</h2>
-      <p style="color: #d7a2a2;">Every cup meets our uncompromising standards</p>
-    </div>
-    <div class="quality-grid">
-      <div class="quality-item">
-        <div class="quality-icon">🌱</div>
-        <h3>Sustainably Sourced</h3>
-        <p>Direct trade partnerships with farmers ensuring fair wages and environmental responsibility</p>
-      </div>
-      <div class="quality-item">
-        <div class="quality-icon">🔬</div>
-        <h3>Lab Tested</h3>
-        <p>Every batch tested for quality, consistency, and optimal flavor development</p>
-      </div>
-      <div class="quality-item">
-        <div class="quality-icon">📅</div>
-        <h3>Fresh Roasted</h3>
-        <p>Roasted to order and shipped within 48 hours for maximum freshness and flavor</p>
-      </div>
-      <div class="quality-item">
-        <div class="quality-icon">✨</div>
-        <h3>Artisan Crafted</h3>
-        <p>Small-batch roasting by master roasters with decades of experience</p>
       </div>
     </div>
   </section>
