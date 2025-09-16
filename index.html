@@ -72,6 +72,8 @@
       color: #fefcf9be;
     }
 
+
+
     .dropdown-menu {
       display: none;
       position: absolute;
@@ -240,7 +242,75 @@
       text-decoration: underline;
       color: #d2f706;
     }
+
+    /* Popup Styles */
+    .popup {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.7);
+      z-index: 1000;
+    }
+
+    .popup-content {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: #fefcf9;
+      padding: 30px;
+      border-radius: 10px;
+      text-align: center;
+      max-width: 400px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .popup h3 {
+      color: #452828;
+      margin-bottom: 15px;
+      font-family: 'Playfair Display', serif;
+    }
+
+    .popup p {
+      color: #5c3b3b;
+      margin-bottom: 20px;
+    }
+
+    .close-btn {
+      background-color: #452828;
+      color: #d7a2a2;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: 500;
+    }
+
+    .close-btn:hover {
+      background-color: #5c3b3b;
+    }
+
+    /* Button styles */
+    .cta-btn {
+      background-color: #452828;
+      color: #d7a2a2;
+      border: none;
+      padding: 12px 25px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: 500;
+      margin: 10px;
+      transition: background-color 0.3s;
+    }
+
+    .cta-btn:hover {
+      background-color: #5c3b3b;
+    }
   </style>
+  
 </head>
 <body>
 
@@ -259,9 +329,8 @@
           <li class="dropdown">
             <a href="#">Coffee ▾</a>
             <ul class="dropdown-menu">
-              <li><a href="coldbrew.html">Cold Brew</a></li>
-
-              <li><a href="#">Espresso</a></li>
+              <li><a href="coldcoffee.html">Cold coffee</a></li>
+              <li><a href="espresso.html">Espresso</a></li>
               <li><a href="#">Cappuccino</a></li>
             </ul>
           </li>
@@ -269,7 +338,9 @@
           <li><a href="orders.html">Bulk Orders</a></li>
           <li><a href="dessert.html">Dessert</a></li>
           <li><a href="cart.html">Cart</a></li>
+          <li><a href="faq.html">FAQ</a></li>
         </ul>
+        <a href="login.html" title="Login" style="display:inline-block;padding:0 8px;"><svg width="32" height="32" viewBox="0 0 48 48" fill="none" stroke="#666" stroke-width="2"><circle cx="24" cy="18" r="8"/><path d="M8 40c0-6 8-10 16-10s16 4 16 10"/></svg></a>
       </div>
     </nav>
   </header>
@@ -282,6 +353,7 @@
       <p>Caforia is where coffee meets class.<br>
          Each cup is slow-crafted with warmth and intention.<br>
          Sip gently, stay awhile, and feel at home.</p>
+      <button class="cta-btn" onclick="showPopup('welcome')">Learn More</button>
     </div>
   </section>
 
@@ -306,6 +378,7 @@
            <br>
           <p>₹349</p>
           <br>
+          <button class="cta-btn" onclick="showPopup('vanilla')">Order Now</button>
         </div>
 
         <div>
@@ -316,6 +389,7 @@
             Sweet, creamy, and crafted<br>for pure indulgence.</p>
             <br>
           <p>₹399</p>
+          <button class="cta-btn" onclick="showPopup('choco')">Order Now</button>
         </div>
 
         <div>
@@ -326,6 +400,7 @@
             Sweet, smooth, and perfectly<br> comforting in every sip.</p>
             <br>
           <p>₹419</p>
+          <button class="cta-btn" onclick="showPopup('caramel')">Order Now</button>
         </div>
 
       </div>
@@ -339,9 +414,67 @@
       <div class="footer-links">
         <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms of Service</a>
       </div>
+      <button class="cta-btn" onclick="showPopup('contact')">Contact Us</button>
     </div>
-    
   </footer>
+
+  <!-- Popups -->
+  <div id="welcome-popup" class="popup">
+    <div class="popup-content">
+      <h3>Welcome to Caforia!</h3>
+      <p>Discover our handcrafted coffee and desserts. Every cup tells a story of passion and tradition.</p>
+      <button class="close-btn" onclick="hidePopup('welcome')">Close</button>
+    </div>
+  </div>
+
+  <div id="vanilla-popup" class="popup">
+    <div class="popup-content">
+      <h3>Vanilla Hazelnut Brew</h3>
+      <p>Added to cart! This aromatic blend will be ready in 5 minutes.</p>
+      <button class="close-btn" onclick="hidePopup('vanilla')">Close</button>
+    </div>
+  </div>
+
+  <div id="choco-popup" class="popup">
+    <div class="popup-content">
+      <h3>Choco Mocha Blend</h3>
+      <p>Added to cart! Your chocolate coffee indulgence is being prepared.</p>
+      <button class="close-btn" onclick="hidePopup('choco')">Close</button>
+    </div>
+  </div>
+
+  <div id="caramel-popup" class="popup">
+    <div class="popup-content">
+      <h3>Caramel Latte</h3>
+      <p>Added to cart! Your sweet caramel treat is on its way.</p>
+      <button class="close-btn" onclick="hidePopup('caramel')">Close</button>
+    </div>
+  </div>
+
+  <div id="contact-popup" class="popup">
+    <div class="popup-content">
+      <h3>Contact Us</h3>
+      <p>Email: info@caforia.com<br>Phone: +91 98765 43210<br>Address: Coffee Street, Bangalore</p>
+      <button class="close-btn" onclick="hidePopup('contact')">Close</button>
+    </div>
+  </div>
+
+  <script>
+    function showPopup(type) {
+      document.getElementById(type + '-popup').style.display = 'block';
+    }
+
+    function hidePopup(type) {
+      document.getElementById(type + '-popup').style.display = 'none';
+    }
+
+    // Close popup when clicking outside
+    window.onclick = function(event) {
+      if (event.target.classList.contains('popup')) {
+        event.target.style.display = 'none';
+      }
+    }
+  </script>
 
 </body>
 </html>

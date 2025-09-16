@@ -1,19 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Caforia | Menu</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <title>Menu</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Montserrat:wght@400;500&display=swap" rel="stylesheet">
   <style>
-    body {
-      margin: 0;
+    body { background: #f7f2e7; color: #6B2E23; font-family: 'Montserrat', sans-serif; margin: 0; padding: 0; }
+    .menu-section { max-width: 600px; margin: 40px auto; }
+    .category-title {
       font-family: 'Playfair Display', serif;
-      background-color: #fff;
-      color: #f5d1a9;
+      font-size: 2.5rem;
+      text-align: center;
+      color: #7a2f1d;
+      margin-bottom: 32px;
+      letter-spacing: 2px;
+    }
+    
+    h2 {
+      text-align: center;
+      font-family: 'Playfair Display', serif;
+      margin: 3px;
+      font-size: 15px;
     }
 
-    /* Navigation Styles */
     nav {
       background-color: #452828;
       padding: 8px 0;
@@ -97,60 +106,33 @@
       display: block;
     }
 
-    /* Menu Page Styles */
-    .menu-header {
-      background-image: url('https://i.imgur.com/t8hAKzA.png');
-      background-size: cover;
-      background-position: center;
-      padding: 70px 0;
-      text-align: center;
-    }
-
-    .menu-header h1 {
-      font-size: 3rem;
-      margin: 0;
-      color: #3E2C23;
-    }
-
-    .menu-container {
-      max-width: 1200px;
-      margin: 30px auto;
-      padding: 0 20px;
-    }
-
-    .menu-top {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin-bottom: 30px;
-    }
-
-    .menu-top p {
-      margin: 0;
-      font-size: 1rem;
-      color: 	#C46025;
-    }
-
-    .menu-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-      gap: 30px;
-    }
-
     .menu-item {
-      color: #6B4E3D;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 28px;
     }
-
-    .menu-item h3 {
-      margin: 0 0 5px 0;
-      font-size: 1.1rem;
+    .item-info {
+      max-width: 70%;
     }
-
-    .menu-item p {
-      margin: 0;
-      font-size: 0.9rem;
+    .item-name {
+      font-weight: bold;
+      font-size: 1.15rem;
+      margin-bottom: 2px;
+      color: #6B2E23;
     }
-
+    .item-desc {
+      font-size: 0.98rem;
+      color: #8d4a2b;
+      margin-bottom: 0;
+    }
+    .item-price {
+      font-weight: bold;
+      font-size: 1.15rem;
+      color: #7a2f1d;
+      min-width: 60px;
+      text-align: right;
+    }
     /* Footer */
     footer {
       background-color: #452828;
@@ -184,69 +166,226 @@
 </head>
 <body>
 
-  <!-- Navigation -->
-  <nav>
-    <div class="nav-container">
-      <div class="brand">
-        <a href="index.html">C A F O R I A</a>
-      </div>
-      <ul class="menu">
-        <li><a href="index.html">Home</a></li>
-        <li class="dropdown">
-          <a href="#">Coffee ▾</a>
-          <ul class="dropdown-menu">
-            <li><a href="coldbrew.html">Cold Brew</a></li>
-            <li><a href="espresso.html">Espresso</a></li>
-            <li><a href="#">Cappuccino</a></li>
-          </ul>
-        </li>
-        <li><a href="menu.html">Menu</a></li>
-        <li><a href="orders.html">Bulk Orders</a></li>
-        <li><a href="dessert.html">Dessert</a></li>
-        <li><a href="cart.html">Cart</a></li>
-      </ul>
-    </div>
-  </nav>
+  <!-- Header Message -->
+  <header>
+    <h2>Flat 20% off on your first order</h2>
 
-  <!-- Header -->
-  <header class="menu-header">
-    <h1>Menu</h1>
+    <!-- Navigation -->
+    <nav>
+      <div class="nav-container">
+        <div class="brand">
+          <a href="index.html">C A F O R I A</a>
+        </div>
+        <ul class="menu">
+          <li><a href="index.html">Home</a></li>
+          <li class="dropdown">
+            <a href="#">Coffee ▾</a>
+            <ul class="dropdown-menu">
+              <li><a href="coldcoffee.html">Cold Coffee</a></li>
+              <li><a href="espresso.html">Espresso</a></li>
+              <li><a href="#">Cappuccino</a></li>
+            </ul>
+          </li>
+          <li><a href="menu.html">Menu</a></li>
+          <li><a href="orders.html">Bulk Orders</a></li>
+          <li><a href="dessert.html">Dessert</a></li>
+          <li><a href="cart.html">Cart</a></li>
+        </ul>
+        <a href="login.html" title="Login" style="display:inline-block;padding:0 8px;"><svg width="32" height="32" viewBox="0 0 48 48" fill="none" stroke="#666" stroke-width="2"><circle cx="24" cy="18" r="8"/><path d="M8 40c0-6 8-10 16-10s16 4 16 10"/></svg></a>
+      </div>
+    </nav>
   </header>
 
-  <!-- Menu Items -->
-  <div class="menu-container">
-    <div class="menu-top">
-      <p>Showing all 24 items</p>
+  <div class="menu-section">
+    <div class="category-title">HOT MILK COFFEE</div>
+    <div class="menu-item">
+      <div class="item-info">
+        <div class="item-name">Cappuccino</div>
+        <div class="item-desc">Ristretto + Warm Milk + Milk Foam</div>
+      </div>
+      <div class="item-price">₹214</div>
+    </div>
+    <div class="menu-item">
+      <div class="item-info">
+        <div class="item-name">Cafe Latte</div>
+        <div class="item-desc">Ristretto + Hot steamed milk</div>
+      </div>
+      <div class="item-price">₹224</div>
+    </div>
+    <div class="menu-item">
+      <div class="item-info">
+        <div class="item-name">Flat White</div>
+        <div class="item-desc">Ristretto + Hot Steamed milk</div>
+      </div>
+      <div class="item-price">₹224</div>
+    </div>
+    <div class="menu-item">
+      <div class="item-info">
+        <div class="item-name">Cinnamon Latte</div>
+        <div class="item-desc">Ristretto + Hot Milk + Cinnamon</div>
+      </div>
+      <div class="item-price">₹238</div>
+    </div>
+    <div class="menu-item">
+      <div class="item-info">
+        <div class="item-name">Cardamom Latte</div>
+        <div class="item-desc">Ristretto + Hot Milk + Cardamom</div>
+      </div>
+      <div class="item-price">₹238</div>
+    </div>
+    <div class="menu-item">
+      <div class="item-info">
+        <div class="item-name">Milk Mocha</div>
+        <div class="item-desc">Ristretto + Hot Choco + Hot Milk</div>
+      </div>
+      <div class="item-price">₹242</div>
+    </div>
+    <div class="menu-item">
+      <div class="item-info">
+        <div class="item-name">Dairy Free Latte</div>
+        <div class="item-desc"></div>
+      </div>
+      <div class="item-price">₹272</div>
     </div>
 
-    <div class="menu-grid">
-      <div class="menu-item"><h3>12 oz Coffee Bag</h3><p>₹299.00</p></div>
-      <div class="menu-item"><h3>Cappuccino</h3><p>₹149.00 – ₹199.00</p></div>
-      <div class="menu-item"><h3>Latte</h3><p>₹149.00 – ₹199.00</p></div>
-      <div class="menu-item"><h3>Mocha</h3><p>₹149.00 – ₹199.00</p></div>
-      <div class="menu-item"><h3>Arizona Teas</h3><p>₹60.00</p></div>
-      <div class="menu-item"><h3>Muffin</h3><p>₹79.00</p></div>
-      <div class="menu-item"><h3>One Pound Coffee Bag</h3><p>₹499.00</p></div>
-      <div class="menu-item"><h3>Hot Chocolate</h3><p>₹69.00</p></div>
-      <div class="menu-item"><h3>Espresso Shot</h3><p>₹90.00</p></div>
-      <div class="menu-item"><h3>Farmers Market Coffee</h3><p>₹99.00</p></div>
-      <div class="menu-item"><h3>V8 Splash</h3><p>₹55.00</p></div>
-      <div class="menu-item"><h3>Ocean Spray</h3><p>₹55.00</p></div>
-      <div class="menu-item"><h3>Breakfast Sandwiches</h3><p>₹120.00</p></div>
-      <div class="menu-item"><h3>Frappe</h3><p>₹180.00</p></div>
-      <div class="menu-item"><h3>Brownie</h3><p>₹80.00</p></div>
-      <div class="menu-item"><h3>Coffee</h3><p>₹60.00 – ₹80.00</p></div>
-      <div class="menu-item"><h3>Tea</h3><p>₹40.00 – ₹60.00</p></div>
-      <div class="menu-item"><h3>Chai Latte</h3><p>₹99.00 – ₹120.00</p></div>
-      <div class="menu-item"><h3>Sparkling Water</h3><p>₹40.00</p></div>
-      <div class="menu-item"><h3>Water Bottle</h3><p>₹20.00</p></div>
-      <div class="menu-item"><h3>Cinnamon Roll</h3><p>₹99.00</p></div>
-      <div class="menu-item"><h3>Cold Brew</h3><p>₹160.00</p></div>
-      <div class="menu-item"><h3>Chocolate Milk</h3><p>₹45.00</p></div>
-      <div class="menu-item"><h3>Caforia T-shirt</h3><p>₹499.00</p></div>
+    <div class="category-title">COLD COFFEE</div>
+    <div class="menu-item">
+      <div class="item-info">
+        <div class="item-name">Classic Cold Brew</div>
+        <div class="item-desc">Slow-steeped, smooth & bold</div>
+      </div>
+      <div class="item-price">₹210</div>
+    </div>
+    <div class="menu-item">
+      <div class="item-info">
+        <div class="item-name">Iced Americano</div>
+        <div class="item-desc">Espresso + Chilled Water + Ice</div>
+      </div>
+      <div class="item-price">₹180</div>
+    </div>
+    <div class="menu-item">
+      <div class="item-info">
+        <div class="item-name">Iced Latte</div>
+        <div class="item-desc">Espresso + Cold Milk + Ice</div>
+      </div>
+      <div class="item-price">₹210</div>
+    </div>
+    <div class="menu-item">
+      <div class="item-info">
+        <div class="item-name">Salted Caramel Cold Coffee</div>
+        <div class="item-desc">Espresso + Caramel + Milk + Ice</div>
+      </div>
+      <div class="item-price">₹230</div>
+    </div>
+
+    <div class="category-title">TEA & OTHERS</div>
+    <div class="menu-item">
+      <div class="item-info">
+        <div class="item-name">Masala Chai</div>
+        <div class="item-desc">Spiced Indian tea with milk</div>
+      </div>
+      <div class="item-price">₹120</div>
+    </div>
+    <div class="menu-item">
+      <div class="item-info">
+        <div class="item-name">Green Tea</div>
+        <div class="item-desc">Light & refreshing</div>
+      </div>
+      <div class="item-price">₹120</div>
+    </div>
+    <div class="menu-item">
+      <div class="item-info">
+        <div class="item-name">Hot Chocolate</div>
+        <div class="item-desc">Rich cocoa & steamed milk</div>
+      </div>
+      <div class="item-price">₹160</div>
+    </div>
+
+    <div class="category-title">BREAKFAST</div>
+    <div class="menu-item">
+      <div class="item-info">
+        <div class="item-name">Avocado Toast</div>
+        <div class="item-desc">Sourdough, smashed avocado, chili flakes</div>
+      </div>
+      <div class="item-price">₹220</div>
+    </div>
+    <div class="menu-item">
+      <div class="item-info">
+        <div class="item-name">Pancakes</div>
+        <div class="item-desc">Fluffy, served with honey & fruit</div>
+      </div>
+      <div class="item-price">₹220</div>
+    </div>
+    <div class="menu-item">
+      <div class="item-info">
+        <div class="item-name">Granola Bowl</div>
+        <div class="item-desc">Homemade granola, yogurt, fresh fruit</div>
+      </div>
+      <div class="item-price">₹220</div>
+    </div>
+
+    <div class="category-title">SANDWICHES & MAINS</div>
+    <div class="menu-item">
+      <div class="item-info">
+        <div class="item-name">Grilled Cheese Sandwich</div>
+        <div class="item-desc">Cheddar, mozzarella, toasted bread</div>
+      </div>
+      <div class="item-price">₹180</div>
+    </div>
+    <div class="menu-item">
+      <div class="item-info">
+        <div class="item-name">Chicken Sandwich</div>
+        <div class="item-desc">Grilled chicken, lettuce, mayo</div>
+      </div>
+      <div class="item-price">₹220</div>
+    </div>
+    <div class="menu-item">
+      <div class="item-info">
+        <div class="item-name">Veggie Sandwich</div>
+        <div class="item-desc">Roasted veggies, hummus, multigrain bread</div>
+      </div>
+      <div class="item-price">₹180</div>
+    </div>
+    <div class="menu-item">
+      <div class="item-info">
+        <div class="item-name">Pasta Arrabiata</div>
+        <div class="item-desc">Penne, spicy tomato sauce</div>
+      </div>
+      <div class="item-price">₹250</div>
+    </div>
+
+    <div class="category-title">DESSERTS</div>
+    <div class="menu-item">
+      <div class="item-info">
+        <div class="item-name">Brownie</div>
+        <div class="item-desc">Rich chocolate, fudgy</div>
+      </div>
+      <div class="item-price">₹120</div>
+    </div>
+    <div class="menu-item">
+      <div class="item-info">
+        <div class="item-name">Cheesecake</div>
+        <div class="item-desc">Classic New York style</div>
+      </div>
+      <div class="item-price">₹180</div>
+    </div>
+    <div class="menu-item">
+      <div class="item-info">
+        <div class="item-name">Tiramisu</div>
+        <div class="item-desc">Coffee-soaked sponge, mascarpone</div>
+      </div>
+      <div class="item-price">₹180</div>
+    </div>
+    <div class="menu-item">
+      <div class="item-info">
+        <div class="item-name">Banana Bread</div>
+        <div class="item-desc">Moist, homemade, with walnuts</div>
+      </div>
+      <div class="item-price">₹120</div>
     </div>
   </div>
 
+  <!-- Footer -->
   <footer>
     <div class="footer-container">
       <p>&copy; 2025 Caforia. All rights reserved.</p>
@@ -256,6 +395,6 @@
     </div>
     
   </footer>
-
+  
 </body>
 </html>

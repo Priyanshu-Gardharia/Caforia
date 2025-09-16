@@ -7,222 +7,645 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Montserrat&display=swap" rel="stylesheet"/>
   <style>
     body {
-      margin: 0;
-      font-family: 'Montserrat', sans-serif;
-      background-color: #fefcf9;
-      color: #2d2d2d;
-    }
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  background-color: #fefcf9;
+  color: #2d2d2d;
+}
 
-     h2 {
+h2 {
       text-align: center;
       font-family: 'Playfair Display', serif;
       margin: 3px;
       font-size: 15px;
     }
 
-     nav {
-      background-color: #452828;
-      padding: 8px 0;
+/* Header & Nav */
+h2, h3, h4 {
+  font-family: 'Playfair Display', serif;
+  margin: 3px;
+}
+
+nav {
+  background-color: #452828;
+  padding: 8px 0;
+}
+
+.nav-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 10px;
+}
+
+.brand a {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #d7a2a2;
+  text-decoration: none;
+}
+
+.menu {
+  display: flex;
+  list-style: none;
+  gap: 20px;
+}
+
+.menu a {
+  color: #d7a2a2;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.menu a:hover {
+  color: #fefcf9be;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  background-color: #452828;
+  margin-top: 10px;
+  border-radius: 4px;
+}
+
+.menu li.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+.dropdown-menu li a {
+  padding: 10px 15px;
+  display: block;
+}
+
+.login-icon {
+  padding: 0 8px;
+  display: inline-block;
+}
+
+/* Espresso Section */
+.espresso-feature {
+  margin: 80px 0;
+  background: #fff;
+  padding: 80px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.coffee-pattern {
+  position: absolute;
+  inset: 0;
+  opacity: 0.08;
+  background-image: url('data:image/svg+xml,...'); /* keep actual SVG */
+  background-size: 120px;
+  background-repeat: repeat;
+  z-index: 0;
+}
+
+.espresso-row {
+  display: flex;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto 60px auto;
+  padding: 0 40px;
+  position: relative;
+  z-index: 1;
+}
+
+.espresso-row.reverse {
+  flex-direction: row-reverse;
+}
+
+.espresso-content {
+  flex: 1;
+  padding: 0 40px;
+}
+
+.espresso-content h2 {
+  color: #4B2E2B;
+  font-size: 2.5rem;
+  margin-bottom: 25px;
+}
+
+.espresso-content p {
+  color: #6B4E3D;
+  font-size: 1.1rem;
+  line-height: 1.8;
+}
+
+.espresso-image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+.espresso-image img {
+  width: 85%;
+  max-width: 480px;
+  border-radius: 20px;
+  box-shadow: 0 15px 35px rgba(69,40,40,0.15);
+}
+
+.order-btn, .partnership-btn {
+  background: #4B2E2B;
+  color: #fff;
+  padding: 16px 32px;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  font-weight: 500;
+  border: none;
+  transition: all 0.3s ease;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.order-btn:hover {
+  background: #6B4E3D;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(69,40,40,0.2);
+}
+
+/* Floating circles */
+.float-circle {
+  position: absolute;
+  border-radius: 50%;
+  animation: float 4s ease-in-out infinite;
+}
+
+.float-circle.brown {
+  background: radial-gradient(circle, #8B4513 0%, transparent 70%);
+  width: 70px;
+  height: 70px;
+}
+
+.float-circle.cream {
+  background: radial-gradient(circle, #E8B07A 0%, transparent 70%);
+  width: 40px;
+  height: 40px;
+  animation-delay: 1s;
+}
+
+/* Bakery Section */
+.bakery-partnership {
+  margin: 80px 0;
+  padding: 80px 0;
+  position: relative;
+  background: #fff;
+}
+
+.partnership-container {
+  display: flex;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+.partnership-content {
+  flex: 1;
+  padding-right: 60px;
+}
+
+.partnership-heading {
+  font-size: 3rem;
+}
+
+.partnership-image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.barista-tip {
+  background: #fefcf9;
+  border-left: 4px solid #E8B07A;
+  padding: 25px 30px;
+  margin: 40px auto;
+  max-width: 600px;
+  border-radius: 8px;
+}
+
+.did-you-know, .customer-review {
+  margin: 40px auto;
+  max-width: 600px;
+  text-align: center;
+}
+
+/* Quote */
+.customer-review blockquote {
+  font-style: italic;
+  color: #4B2E2B;
+  border-left: 3px solid #E8B07A;
+  padding-left: 20px;
+}
+
+.customer-review span {
+  font-weight: bold;
+  color: #6B4E3D;
+  font-size: 0.95rem;
+}
+
+body {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  background: #fefcf9;
+  color: #2d2d2d;
+}
+
+h2, h3, h4 {
+  font-family: 'Playfair Display', serif;
+}
+
+.espresso-feature,
+.bakery-partnership {
+  margin: 80px 0;
+  background: #fff;
+  padding: 80px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.background-pattern {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.08;
+  background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 120'><circle cx='15' cy='15' r='3' fill='%23E8B07A'/><path d='M25 10 Q30 5 35 10' stroke='%23E8B07A' fill='none' stroke-width='1.5'/><rect x='60' y='40' width='10' height='15' fill='%23E8B07A'/><circle cx='90' cy='25' r='2' fill='%23E8B07A'/><path d='M100 20 Q105 15 110 20' stroke='%23E8B07A' fill='none' stroke-width='1'/></svg>");
+  background-repeat: repeat;
+  background-size: 120px 120px;
+}
+
+.espresso-row {
+  display: flex;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto 60px auto;
+  padding: 0 40px;
+  position: relative;
+  z-index: 1;
+}
+
+.espresso-row.reverse {
+  flex-direction: row-reverse;
+}
+
+.espresso-content {
+  flex: 1;
+  padding-right: 60px;
+}
+
+.espresso-content.right {
+  padding-left: 60px;
+  text-align: right;
+}
+
+.espresso-content h2 {
+  color: #4B2E2B;
+  font-size: 2.5rem;
+  margin-bottom: 25px;
+  line-height: 1.2;
+}
+
+.espresso-content p {
+  color: #6B4E3D;
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin-bottom: 25px;
+}
+
+.order-btn, .partnership-btn {
+  background: #4B2E2B;
+  color: #fff;
+  border: none;
+  padding: 16px 32px;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 500;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.espresso-image {
+  flex: 1;
+  text-align: center;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.espresso-image img,
+.partnership-image img {
+  width: 85%;
+  max-width: 480px;
+  border-radius: 20px;
+  box-shadow: 0 15px 35px rgba(69, 40, 40, 0.15);
+  opacity: 0;
+}
+
+.slide-in-right {
+  animation: slideInRight 1.5s ease-out 0.5s forwards;
+  transform: translateX(100%);
+}
+
+.slide-in-left {
+  animation: slideInLeft 1.5s ease-out 0.5s forwards;
+  transform: translateX(-100%);
+}
+
+@keyframes slideInRight {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInLeft {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.coffee-bubble {
+  position: absolute;
+  border-radius: 50%;
+  animation: float 4s ease-in-out infinite;
+}
+
+.brown-bubble {
+  top: 20%;
+  right: 20%;
+  width: 70px;
+  height: 70px;
+  background: radial-gradient(circle, #8B4513 0%, transparent 70%);
+  opacity: 0.7;
+}
+
+.gold-bubble {
+  bottom: 25%;
+  left: 15%;
+  width: 40px;
+  height: 40px;
+  background: radial-gradient(circle, #E8B07A 0%, transparent 70%);
+  opacity: 0.5;
+}
+
+.delay-1 {
+  animation-delay: 1s;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+/* Bakery Section */
+.partnership-container {
+  display: flex;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px;
+  position: relative;
+  z-index: 1;
+}
+
+.partnership-content {
+  flex: 1;
+  padding-right: 60px;
+}
+
+.subheading {
+  color: #E8B07A;
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.partnership-heading {
+  color: #4B2E2B;
+  font-size: 3rem;
+  margin-bottom: 25px;
+  line-height: 1.2;
+}
+
+.partnership-text {
+  color: #6B4E3D;
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin-bottom: 25px;
+}
+
+.partnership-image {
+  flex: 1;
+  text-align: center;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Barista Tip */
+.barista-tip {
+  background: #fefcf9;
+  border-left: 4px solid #E8B07A;
+  padding: 25px 30px;
+  margin: 40px auto;
+  max-width: 600px;
+  border-radius: 8px;
+}
+
+.barista-tip h3 {
+  color: #4B2E2B;
+  margin-bottom: 12px;
+}
+
+.barista-tip p {
+  color: #6B4E3D;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* Did You Know */
+.did-you-know {
+  margin: 40px auto;
+  max-width: 600px;
+  text-align: center;
+}
+
+.did-you-know h4 {
+  color: #E8B07A;
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+}
+
+.did-you-know p {
+  color: #452828;
+  font-size: 1rem;
+}
+
+/* Review Section */
+.customer-review {
+  margin: 40px auto;
+  max-width: 600px;
+}
+
+.customer-review blockquote {
+  font-style: italic;
+  color: #4B2E2B;
+  border-left: 3px solid #E8B07A;
+  padding-left: 20px;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+.customer-review span {
+  font-weight: bold;
+  color: #6B4E3D;
+  font-size: 0.95rem;
+}
+
+/* Footer */
+footer {
+  background-color: #452828;
+  color: #d7a2a2;
+  text-align: center;
+  padding: 20px;
+}
+
+.footer-links a {
+  color: #fcfcfa;
+  margin: 0 10px;
+  text-decoration: none;
+}
+
+.footer-links a:hover {
+  color: #d2f706;
+  text-decoration: underline;
+}
+
+/* Animations */
+
+/* Slide animations */
+    @keyframes slideInRight {
+      from {
+        opacity: 0;
+        transform: translateX(100%);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
     }
-
-    .nav-container {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 10px;
-    }
-
-    .brand {
-      font-size: 1.5rem;
-      font-weight: 600;
-    }
-
-    .brand a {
-      text-decoration: none;
-      color: #d7a2a2;
-      display: flex;
-      align-items: center;
-    }
-
-    .menu {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      flex-wrap: wrap;
-    }
-
-    .menu li {
-      margin: 0 15px;
-      position: relative;
-    }
-
-    .menu a {
-      text-decoration: none;
-      color: #d7a2a2;
-      font-weight: 500;
-      font-size: 1rem;
-      transition: color 0.3s ease;
-    }
-
-    .menu a:hover {
-      color: #fefcf9be;
-    }
-
-    .dropdown-menu {
-      display: none;
-      position: absolute;
-      top: 100%;
-      left: 0;
-      background-color: #452828;
-      padding: 10px 0;
-      border-radius: 4px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-      z-index: 999;
-    }
-
-    .dropdown-menu li {
-      margin: 0;
-      width: 160px;
-    }
-
-    .dropdown-menu a {
-      display: block;
-      padding: 10px 15px;
-      color: #d7a2a2;
-    }
-
-    .dropdown-menu a:hover {
-      background-color: #5c3b3b;
-      color: #fff;
-    }
-
-    .menu li.dropdown:hover .dropdown-menu {
-      display: block;
-    }
-
-
-    .hero {
-      background: url('picture/espresso-banner.jpg') center/cover no-repeat;
-      height: 70vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      text-align: center;
-      position: relative;
-    }
-
-    .hero::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: rgba(0,0,0,0.5);
-    }
-
-    .hero-content {
-      position: relative;
-      z-index: 2;
-    }
-
-    .hero h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: 3rem;
-      margin-bottom: 10px;
-    }
-
-    .buy-btn {
-    padding: 12px 24px;
-    background-color: #cceffc;
-    border: none;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background 0.3s;
-    }
-
-    .buy-btn:hover {
-    background-color: #a0d8f1;
-    }
-
-    .coldbrew-image img {
-    width: 500px;
-    height:500px;
     
-    border-radius: 8px;
+    @keyframes slideInLeft {
+      from {
+        opacity: 0;
+        transform: translateX(-100%);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
     }
-
-    .espresso-highlight {
-    background-color: #fefcf9;
-    padding: 60px 0;
-    width: 100%;
-    }
-
-    .espresso-content {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    }
-
-    .espresso-image {
-    flex: 1;
-    max-width: 50%;
-    }
-
-    .espresso-image img {
-    width: 600px;
-    height:400px;
     
-    border-radius: 8px;
+    .order-btn:hover {
+      background: #6B4E3D !important;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(69,40,40,0.2);
     }
-
-
-    .espresso-text {
-    flex: 1;
-    max-width: 50%;
-    padding: 0 60px;
-    text-align: left;
+    
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
     }
-
-    .espresso-text h2 {
-    font-family: 'Playfair Display', serif;
-    color: #452828;
-    font-size: 2.2rem;
-    margin-bottom: 20px;
+    
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .partnership-container {
+        flex-direction: column !important;
+        padding: 0 20px !important;
+      }
+      .partnership-content {
+        padding-right: 0 !important;
+        padding-bottom: 40px !important;
+        text-align: center !important;
+      }
+      .partnership-heading {
+        font-size: 2.2rem !important;
+      }
+      .partnership-text {
+        font-size: 1rem !important;
+      }
+      .partnership-image img {
+        width: 100% !important;
+        max-width: 350px !important;
+      }
+      .espresso-card {
+        flex-direction: column !important;
+        text-align: center !important;
+      }
+      .espresso-content {
+        padding: 0 20px 30px 20px !important;
+      }
+      .espresso-image {
+        order: -1 !important;
+      }
     }
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(100%); }
+  to { opacity: 1; transform: translateX(0); }
+}
 
-    .espresso-text p {
-    font-size: 1rem;
-    color: #333;
-    margin-bottom: 25px;
-    line-height: 1.6;
-    }
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-100%); }
+  to { opacity: 1; transform: translateX(0); }
+}
 
-    footer {
-      background-color: #452828;
-      color: #d7a2a2;
-      text-align: center;
-      padding: 20px;
-      margin-top: 60px;
-    }
+.slide-right {
+  animation: slideInRight 1.5s ease-out forwards;
+  opacity: 0;
+}
 
-    .footer-links a {
-      color: #fcfcfa;
-      margin: 0 10px;
-      text-decoration: none;
-    }
+.slide-left {
+  animation: slideInLeft 1.5s ease-out forwards;
+  opacity: 0;
+}
 
-    .footer-links a:hover {
-      text-decoration: underline;
-      color: #d2f706;
-    }
-  </style>
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .espresso-row,
+  .partnership-container {
+    flex-direction: column;
+    padding: 0 20px;
+  }
+  .espresso-content,
+  .partnership-content {
+    padding: 20px 0;
+    text-align: center;
+  }
+}
+
+</style>
 </head>
 <body>
 
-   <!-- Header Message -->
+     <!-- Header Message -->
   <header>
     <h2>Flat 20% off on your first order</h2>
 
@@ -237,8 +660,7 @@
           <li class="dropdown">
             <a href="#">Coffee ▾</a>
             <ul class="dropdown-menu">
-              <li><a href="coldbrew.html">Cold Brew</a></li>
-
+              <li><a href="coldcoffee.html">Cold Coffee</a></li>
               <li><a href="#">Espresso</a></li>
               <li><a href="#">Cappuccino</a></li>
             </ul>
@@ -248,32 +670,92 @@
           <li><a href="dessert.html">Dessert</a></li>
           <li><a href="cart.html">Cart</a></li>
         </ul>
+        <a href="login.html" title="Login" style="display:inline-block;padding:0 8px;"><svg width="32" height="32" viewBox="0 0 48 48" fill="none" stroke="#666" stroke-width="2"><circle cx="24" cy="18" r="8"/><path d="M8 40c0-6 8-10 16-10s16 4 16 10"/></svg></a>
       </div>
     </nav>
   </header>
 
+ <!-- Animated Espresso Section -->
+  <section class="espresso-feature">
+    <div class="background-pattern"></div>
 
-  <!-- Hero Banner -->
-  <section class="hero">
-    <div class="hero-content">
-      <h1>Espresso</h1>
-      <p>Pure power in every shot.</p>
+    <!-- Classic Espresso -->
+    <div class="espresso-row">
+      <div class="espresso-content">
+        <h2>Classic Espresso</h2>
+        <p>The foundation of all great coffee drinks. Our signature espresso is carefully extracted at the perfect temperature and pressure, creating a rich, bold shot with a beautiful golden crema that speaks to the purist in every coffee lover.</p>
+        <div>
+          <button class="order-btn">Order Now →</button>
+        </div>
+      </div>
+      <div class="espresso-image">
+        <img src="picture/espresso_1.jpg" alt="Classic Espresso Shot" class="slide-in-right">
+        <div class="coffee-bubble brown-bubble"></div>
+        <div class="coffee-bubble gold-bubble delay-1"></div>
+      </div>
+    </div>
+
+    <!-- Double Shot -->
+    <div class="espresso-row reverse">
+      <div class="espresso-content right">
+        <h2>Double Shot</h2>
+        <p>For those who need that extra kick. Our double shot espresso delivers twice the intensity and flavor, perfect for crafting your favorite specialty drinks or enjoying straight up with that bold, uncompromising taste.</p>
+        <div>
+          <button class="order-btn">Order Now →</button>
+        </div>
+      </div>
+      <div class="espresso-image">
+        <img src="picture/doubleshot_Espresso.jpg" alt="Double Espresso Shot" class="slide-in-left">
+        <div class="coffee-bubble brown-bubble"></div>
+        <div class="coffee-bubble gold-bubble delay-1"></div>
+      </div>
     </div>
   </section>
 
-  <!-- Espresso Highlight Section -->
-<section class="espresso-highlight">
-  <div class="espresso-content">
-    <div class="espresso-image">
-      <img src="picture/espresso.jpg" alt="Espresso Shot">
+  <!-- Bakery Partnership Section -->
+  <section class="bakery-partnership">
+    <div class="background-pattern"></div>
+    <div class="partnership-container">
+      <div class="partnership-content">
+        <div class="subheading">Baked Goods, Pastries, & Sandwiches</div>
+        <h2 class="partnership-heading">Better Together: Caforia × Local Bakeries</h2>
+        <p class="partnership-text">Every pastry we serve is handcrafted by our local bakery partners, gems we're proud to support.</p>
+        <p class="partnership-text">It's a sweet partnership that supports local business and builds up our community—one bite at a time.</p>
+        <p class="partnership-text">It's more than a treat—it's a taste of our small business spirit, made fresh just for you.</p>
+        <div>
+          <button class="partnership-btn">Order Now →</button>
+        </div>
+      </div>
+      <div class="partnership-image">
+        <img src="picture/blueburrymuffins.jpg" alt="Fresh Blueberry Muffin" class="slide-in-right">
+        <div class="coffee-bubble brown-bubble"></div>
+        <div class="coffee-bubble gold-bubble delay-1"></div>
+      </div>
     </div>
-    <div class="espresso-text">
-      <h2>Bold & Intense <em>Espresso</em></h2>
-      <p>Espresso is the heart of coffee culture. A concentrated shot brewed under high pressure, delivering a rich aroma and bold flavor — perfect for the purists.</p>
-      <button class="buy-btn">Buy Now</button>
-    </div>
-  </div>
-</section>
+  </section>
+
+  <!-- Barista's Tip Section -->
+  <section class="barista-tip">
+    <h3>Barista's Tip</h3>
+    <p>For the perfect espresso, use freshly ground beans and tamp with consistent pressure. The ideal extraction time is 25-30 seconds, creating a rich crema that's the hallmark of a well-crafted shot.</p>
+  </section>
+
+  <!-- Did You Know Section -->
+  <section class="did-you-know">
+    <h4>Did you know?</h4>
+    <p>The word "espresso" comes from the Italian word meaning "pressed out" — referring to the high-pressure brewing method that extracts the coffee's full flavor in just 30 seconds.</p>
+  </section>
+
+  <!-- Customer Review Section -->
+  <section class="customer-review">
+    <blockquote>
+      "The espresso here hits different. Rich, bold, and never bitter. It's my morning ritual!"<br>
+      <span>— Rahul, Delhi</span>
+    </blockquote>
+  </section>
+
+</body>
+</html>
 
   <!-- Footer -->
   <footer>
@@ -287,3 +769,4 @@
 
 </body>
 </html>
+

@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cold Brew - Caforia</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Montserrat&display=swap" rel="stylesheet"/>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Montserrat', sans-serif;
+      background-color: #fefcf9;
+      color: #2d2d2d;
+    }
+    h2 {
+      text-align: center;
+      font-family: 'Playfair Display', serif;
+      margin: 3px;
+      font-size: 15px;
+    }
+    
+    nav {
+      background-color: #452828;
+      padding: 8px 0;
+    }
+
+    .nav-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 10px;
+    }
+
+    .brand {
+      font-size: 1.5rem;
+      font-weight: 600;
+    }
+
+    .brand a {
+      text-decoration: none;
+      color: #d7a2a2;
+      display: flex;
+      align-items: center;
+    }
+
+    .menu {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .menu li {
+      margin: 0 15px;
+      position: relative;
+    }
+
+    .menu a {
+      text-decoration: none;
+      color: #d7a2a2;
+      font-weight: 500;
+      font-size: 1rem;
+      transition: color 0.3s ease;
+    }
+
+    .menu a:hover {
+      color: #fefcf9be;
+    }
+
+    .dropdown-menu {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background-color: #452828;
+      padding: 10px 0;
+      border-radius: 4px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+      z-index: 999;
+    }
+
+    .dropdown-menu li {
+      margin: 0;
+      width: 160px;
+    }
+
+    .dropdown-menu a {
+      display: block;
+      padding: 10px 15px;
+      color: #d7a2a2;
+    }
+
+    .dropdown-menu a:hover {
+      background-color: #5c3b3b;
+      color: #fff;
+    }
+
+    .menu li.dropdown:hover .dropdown-menu {
+      display: block;
+    }
+    
+
+
+    .section {
+      max-width: 1000px;
+      margin: 60px auto;
+      padding: 0 20px;
+    }
+
+    .section h2 {
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+      text-align: center;
+      color: #452828;
+      font-family: 'Playfair Display', serif;
+    }
+
+    .section p {
+      line-height: 1.6;
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .coldbrew-highlight {
+  padding: 60px;
+  background-color: #fdfdfd;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.coldbrew-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.coldbrew-text {
+  flex: 1;
+  max-width: 500px;
+}
+
+.coldbrew-text h2 {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+}
+
+.coldbrew-text em {
+  font-style: italic;
+}
+
+.coldbrew-text p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.buy-btn {
+  padding: 12px 24px;
+  background-color: #cceffc;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.buy-btn:hover {
+  background-color: #a0d8f1;
+}
+
+.coldbrew-image img {
+  width: 500px;
+  height:500px;
+  
+  border-radius: 8px;
+}
+
+  .salted-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #fff;
+  padding: 60px 10%;
+  gap: 40px;
+  font-family: 'Segoe UI', sans-serif;
+  flex-direction: row-reverse; /* image left, text right */
+}
+
+.salted-text {
+  flex: 1;
+}
+
+.salted-text h2 {
+  font-size: 2.2rem;
+  margin-bottom: 20px;
+  color: #2e1a0f;
+}
+
+.salted-text p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #4e3c30;
+  margin-bottom: 15px;
+}
+
+.salted-price {
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: #2e1a0f;
+}
+
+
+.salted-image {
+  flex: 1;
+}
+
+.salted-image img {
+  width: 500px;
+  border-radius: 8px;
+  object-fit: cover;
+  
+}
+
+/* New Coffee Guide Section */
+.coffee-guide {
+  padding: 80px 20px;
+  background-color: #fefcf9;
+}
+
+.coffee-guide h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 60px;
+  color: #452828;
+  font-family: 'Playfair Display', serif;
+}
+
+/* Slider Container */
+.slider-container {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.slider-track {
+  display: flex;
+  transition: transform 0.5s ease;
+  gap: 30px;
+}
+
+.slider-slide {
+  min-width: 280px;
+  flex: 0 0 280px;
+}
+
+/* Coffee Card Style */
+.coffee-card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  min-height: 450px;
+  display: flex;
+  flex-direction: column;
+}
+
+.coffee-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+}
+
+.coffee-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.coffee-card-content {
+  padding: 20px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.coffee-card h3 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  color: #452828;
+  font-family: 'Playfair Display', serif;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.coffee-card p {
+  color: #666;
+  line-height: 1.4;
+  margin-bottom: 15px;
+  font-size: 0.9rem;
+  flex: 1;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+}
+
+.coffee-card .price {
+  font-weight: bold;
+  color: #452828;
+  font-size: 1.1rem;
+  margin-bottom: 12px;
+}
+
+.coffee-card .buy-btn {
+  width: 100%;
+  padding: 12px;
+  background-color: #452828;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s;
+  font-size: 0.9rem;
+  margin-top: auto;
+}
+
+.coffee-card .buy-btn:hover {
+  background-color: #5c3b3b;
+}
+
+/* Slider Navigation */
+.slider-nav {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+  gap: 10px;
+}
+
+.slider-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: #ddd;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.slider-dot.active {
+  background-color: #452828;
+}
+
+.slider-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(69, 40, 40, 0.9);
+  color: white;
+  border: none;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  z-index: 10;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+.slider-arrow:hover {
+  background: rgba(69, 40, 40, 1);
+  transform: translateY(-50%) scale(1.1);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+.slider-arrow.prev {
+  left: 15px;
+}
+
+.slider-arrow.next {
+  right: 15px;
+}
+
+/* Vanilla Section */
+.vanilla-section {
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  padding: 60px 10%;
+  gap: 40px;
+  margin: 40px 0;
+}
+
+.vanilla-text {
+  flex: 1;
+}
+
+.vanilla-text h2 {
+  font-size: 2.2rem;
+  margin-bottom: 20px;
+  color: #2e1a0f;
+  text-align: left;
+}
+
+.vanilla-text p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #4e3c30;
+  margin-bottom: 15px;
+}
+
+.vanilla-image {
+  flex: 1;
+}
+
+.vanilla-image img {
+  width: 500px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 30px;
+      background-color: #fffdfb;
+    }
+
+    table, th, td {
+      border: 1px solid #ccc;
+    }
+
+    th, td {
+      padding: 12px;
+      text-align: center;
+    }
+
+    th {
+      background-color: #f4e6e6;
+    }
+
+    .testimonial {
+      font-style: italic;
+      background: #f9f9f9;
+      padding: 15px;
+      margin: 15px auto;
+      border-left: 4px solid #452828;
+      max-width: 700px;
+    }
+
+    footer {
+      background-color: #452828;
+      color: #d7a2a2;
+      text-align: center;
+      padding: 20px;
+      margin-top: 60px;
+    }
+
+    .footer-links a {
+      color: #fcfcfa;
+      margin: 0 10px;
+      text-decoration: none;
+    }
+
+    .footer-links a:hover {
+      text-decoration: underline;
+      color: #d2f706;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .slider-slide {
+        min-width: 280px;
+        flex: 0 0 280px;
+      }
+      
+      .coffee-card {
+        min-height: 420px;
+      }
+      
+      .coffee-card img {
+        height: 160px;
+      }
+      
+      .coffee-card-content {
+        padding: 15px;
+      }
+      
+      .coffee-card h3 {
+        font-size: 1.1rem;
+      }
+      
+      .coffee-card p {
+        font-size: 0.85rem;
+        -webkit-line-clamp: 3;
+      }
+      
+      .vanilla-section {
+        flex-direction: column;
+        text-align: center;
+      }
+      
+      .vanilla-image img {
+        width: 100%;
+        max-width: 400px;
+      }
+      
+      .slider-arrow {
+        width: 35px;
+        height: 35px;
+        font-size: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header Message -->
+  <header>
+    <h2>Flat 20% off on your first order</h2>
+
+    <!-- Navigation -->
+    <nav>
+      <div class="nav-container">
+        <div class="brand">
+          <a href="index.html">C A F O R I A</a>
+        </div>
+        <ul class="menu">
+          <li><a href="index.html">Home</a></li>
+          <li class="dropdown">
+            <a href="#">Coffee ▾</a>
+            <ul class="dropdown-menu">
+              <li><a href="coldcoffee.html">Cold coffee</a></li>
+              <li><a href="espresso.html">Espresso</a></li>
+              <li><a href="#">Cappuccino</a></li>
+            </ul>
+          </li>
+          <li><a href="menu.html">Menu</a></li>
+          <li><a href="orders.html">Bulk Orders</a></li>
+          <li><a href="dessert.html">Dessert</a></li>
+          <li><a href="cart.html">Cart</a></li>
+        </ul>
+        <a href="login.html" title="Login" style="display:inline-block;padding:0 8px;"><svg width="32" height="32" viewBox="0 0 48 48" fill="none" stroke="#666" stroke-width="2"><circle cx="24" cy="18" r="8"/><path d="M8 40c0-6 8-10 16-10s16 4 16 10"/></svg></a>
+      </div>
+    </nav>
+  </header>
+
+
+
+  <!-- Introduction -->
+  <section class="section">
+    <h2>What Makes Cold Brew Special?</h2>
+    <p>Cold Brew coffee is steeped for over 16 hours, delivering a smooth, rich flavor with low acidity. Perfect for warm days and any time you need a cool caffeine boost.</p>
+  </section>
+
+  <section class="coldbrew-highlight">
+  <div class="coldbrew-content">
+    <div class="coldbrew-text">
+      <h2>New to <em>Cold Brew Coffee?</em></h2>
+      <p>Start your day with smooth, rich flavors. Discover our beginner-friendly brews crafted to energize your mornings.</p>
+      <button class="buy-btn">Buy Now</button>
+    </div>
+    <div class="coldbrew-image">
+      <img src="picture/classicColdBrew.jpg" alt="Cold Brew Coffee">
+    </div>
+  </div>
+</section>
+
+ <section class="salted-section">
+  <div class="salted-text">
+    <h2>Salted Caramel Cream Cold Brew</h2>
+    <p>Indulge in a smooth, slow-steeped cold brew topped with velvety salted caramel cream. A rich fusion of sweet and bold, crafted for cold coffee lovers.</p>
+    <button class="buy-btn">Buy Now</button>
+  </div>
+  <div class="salted-image">
+    <img src="picture/SaltedCaramelCreamColdBrew.jpg" alt="Salted Caramel Cream Cold Brew">
+  </div>
+</section>
+
+<!-- Coffee Guide Slider Section -->
+<section class="coffee-guide">
+  <h2>Coffee Guide Book</h2>
+  <div class="slider-container">
+    <button class="slider-arrow prev" onclick="slidePrev()">‹</button>
+    <button class="slider-arrow next" onclick="slideNext()">›</button>
+    
+    <div class="slider-track" id="sliderTrack">
+      <!-- Latte Macchiato -->
+      <div class="slider-slide">
+        <div class="coffee-card">
+          <img src="picture/carameLatte.webp" alt="Latte Macchiato">
+          <div class="coffee-card-content">
+            <h3>Latte Macchiato</h3>
+            <p>A beautiful layered drink with steamed milk, espresso, and a touch of vanilla. Perfect for those who love creamy coffee.</p>
+            <div class="price">₹180</div>
+            <button class="buy-btn">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Vanilla Hazelnut -->
+      <div class="slider-slide">
+        <div class="coffee-card">
+          <img src="picture/VanillaHazelnutBrew.jpg" alt="Vanilla Hazelnut Cold Brew">
+          <div class="coffee-card-content">
+            <h3>Vanilla Hazelnut Cold Brew</h3>
+            <p>Smooth cold brew with sweet vanilla and rich hazelnut flavors. A perfect balance of bold and sweet.</p>
+            <div class="price">₹200</div>
+            <button class="buy-btn">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Chocolate Mocha -->
+      <div class="slider-slide">
+        <div class="coffee-card">
+          <img src="picture/Choco Mocha Blend.jpg" alt="Chocolate Mocha Cold Brew">
+          <div class="coffee-card-content">
+            <h3>Chocolate Mocha Cold Brew</h3>
+            <p>Rich chocolate mixed with our signature cold brew. A decadent treat for chocolate lovers.</p>
+            <div class="price">₹220</div>
+            <button class="buy-btn">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Classic Cold Brew -->
+      <div class="slider-slide">
+        <div class="coffee-card">
+          <img src="picture/classicColdBrew.jpg" alt="Classic Cold Brew">
+          <div class="coffee-card-content">
+            <h3>Classic Cold Brew</h3>
+            <p>Our signature cold brew steeped for 16 hours. Smooth, rich, and low in acidity - the perfect cold coffee.</p>
+            <div class="price">₹160</div>
+            <button class="buy-btn">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Salted Caramel -->
+      <div class="slider-slide">
+        <div class="coffee-card">
+          <img src="picture/SaltedCaramelCreamColdBrew.jpg" alt="Salted Caramel Cream Cold Brew">
+          <div class="coffee-card-content">
+            <h3>Salted Caramel Cream Cold Brew</h3>
+            <p>Indulge in smooth cold brew topped with velvety salted caramel cream. A rich fusion of sweet and bold.</p>
+            <div class="price">₹240</div>
+            <button class="buy-btn">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Black Coffee -->
+      <div class="slider-slide">
+        <div class="coffee-card">
+          <img src="picture/espresso.jpg" alt="Black Coffee">
+          <div class="coffee-card-content">
+            <h3>Black Coffee</h3>
+            <p>Simple and pure. Our black coffee is as straightforward as it gets - just coffee and water, served hot or cold.</p>
+            <div class="price">₹120</div>
+            <button class="buy-btn">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Slider Dots -->
+  <div class="slider-nav" id="sliderDots">
+    <div class="slider-dot active" onclick="goToSlide(0)"></div>
+    <div class="slider-dot" onclick="goToSlide(1)"></div>
+    <div class="slider-dot" onclick="goToSlide(2)"></div>
+    <div class="slider-dot" onclick="goToSlide(3)"></div>
+    <div class="slider-dot" onclick="goToSlide(4)"></div>
+    <div class="slider-dot" onclick="goToSlide(5)"></div>
+  </div>
+</section>
+
+<!-- Vanilla Section -->
+<section class="vanilla-section">
+  <div class="vanilla-text">
+    <h2>Vanilla Sweet Cream Cold Brew</h2>
+    <p>Our signature cold brew topped with house-made vanilla sweet cream. The perfect balance of bold coffee and smooth sweetness that will keep you coming back for more.</p>
+    <button class="buy-btn">Buy Now</button>
+  </div>
+  <div class="vanilla-image">
+    <img src="picture/VanillaHazelnutBrew.jpg" alt="Vanilla Sweet Cream Cold Brew">
+  </div>
+</section>
+
+  <!-- Comparison Table -->
+  <section class="section">
+    <h2>Cold Brew vs Iced Coffee</h2>
+    <table>
+      <tr>
+        <th>Feature</th>
+        <th>Cold Brew</th>
+        <th>Iced Coffee</th>
+      </tr>
+      <tr>
+        <td>Brew Time</td>
+        <td>16-24 hours</td>
+        <td>5-10 minutes</td>
+      </tr>
+      <tr>
+        <td>Acidity</td>
+        <td>Low</td>
+        <td>Medium-High</td>
+      </tr>
+      <tr>
+        <td>Flavor</td>
+        <td>Rich, Smooth</td>
+        <td>Bold, Bitter</td>
+      </tr>
+      <tr>
+        <td>Served</td>
+        <td>Chilled</td>
+        <td>Chilled</td>
+      </tr>
+    </table>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="section">
+    <h2>What Our Customers Say</h2>
+    <div class="testimonial">"The smoothest cold brew I've ever tasted — Caforia nailed it!"</div>
+    <div class="testimonial">"Perfect for my afternoon pick-me-up, and not too acidic like other coffees."</div>
+    <div class="testimonial">"Nitro Cold Brew is my new obsession. Velvety and powerful!"</div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Caforia. All rights reserved.</p>
+    <div class="footer-links">
+      <a href="index.html">Home</a> |
+      <a href="privacy.html">Privacy Policy</a> |
+      <a href="terms.html">Terms of Service</a>
+    </div>
+  </footer>
+
+  <script>
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slider-slide');
+    const dots = document.querySelectorAll('.slider-dot');
+    const track = document.getElementById('sliderTrack');
+    const slideWidth = 280 + 30; // slide width + gap
+
+    function updateSlider() {
+      track.style.transform = `translateX(-${currentSlide * slideWidth}px)`;
+      
+      // Update dots
+      dots.forEach((dot, index) => {
+        dot.classList.toggle('active', index === currentSlide);
+      });
+    }
+
+    function slideNext() {
+      currentSlide = (currentSlide + 1) % slides.length;
+      updateSlider();
+    }
+
+    function slidePrev() {
+      currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+      updateSlider();
+    }
+
+    function goToSlide(index) {
+      currentSlide = index;
+      updateSlider();
+    }
+
+    // Auto slide every 5 seconds
+    setInterval(slideNext, 5000);
+  </script>
+
+</body>
+</html>
